@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('笔录信息列表')" />
+    <th:block th:include="include :: bootstrap-select-css" />
+    <th:block th:include="include :: layout-latest-css" />
+    <link href="../static/css/overRuoyi/overRuoyi.css" th:href="@{/css/overRuoyi/overRuoyi.css}" rel="stylesheet"/>
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <label>文书编号：</label>
+                                <select class="form-control" name="billNum" id="billNum"></select>
+                            </li>
+                            <li>
+                                <label>笔录类型：</label>
+                                <select name="lowRecordType" th:with="type=${@dict.getType('law_record_type')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <label>询/讯问人：</label>
+                                <input type="text" name="lowRecordInterviewerName"/>
+                            </li>
+                            <li>
+                                <label>被询/讯问人：</label>
+                                <input type="text" name="lowRecordIntervieweeName"/>
+                            </li>
+                            <li class="select-time">
+                                <label>笔录日期：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginLowRecordDate]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endLowRecordDate]"/>
+                            </li>
+                            <li>
+                                <label>笔录人：</label>
+                                <input type="text" name="lowRecordNoteTaker"/>
+                            </li>
+                            <li class="searchBtn" style="float: right">
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-primary single disabled" onclick="$.operate.editTab()" shiro:hasPermission="edoc:lowrecordinfo:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="edoc:lowrecordinfo:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+     <th:block th:include="include :: bootstrap-select-js" />
+     <th:block th:include="include :: layout-latest-js" />
+    <script th:inline="javascript">
+        var editFlag = [[${@permission.hasPermi('edoc:lowrecordinfo:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('edoc:lowrecordinfo:remove')}]];
+        var recordStatusDatas = [[${@dict.getType('record_status')}]];
+        var lowRecordTypeDatas = [[${@dict.getType('law_record_type')}]];
+        var prefix = ctx + "edoc/lowrecordinfo";
+
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",
+                exportUrl: prefix + "/export",
+                modalName: "笔录信息",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'uuid',
+                    title: '笔录编号',
+                    visible: false
+                },
+                {
+                    field: 'lowRecordCaseAddress',
+                    title: '案件地点',
+                    visible: false
+                },
+                {
+                    field: 'lowRecordType',
+                    title: '笔录类型',
+                    formatter: function(value, row, index) {
+                        return $.table.selectDictLabel(lowRecordTypeDatas, value);
+                    },
+                    visible: false
+                },
+                {
+                    field: 'billNum',
+                    title: '文书编号'
+                },
+                {
+                    field: 'lowRecordNum',
+                    title: '笔录编号',
+                    visible: false
+                },
+                {
+                    field: 'lowRecordInterviewerName',
+                    title: '询/讯问人'
+                },
+                {
+                    field: 'lowRecordIntervieweeName',
+                    title: '被询/讯问人'
+                },
+                {
+                    field: 'lowRecordDate',
+                    title: '笔录日期'
+                },
+                {
+                    field: 'lowRecordNoteTaker',
+                    title: '笔录人'
+                },
+/*                {
+                    field: 'createDatetime',
+                    title: '创建时间',
+                    visible: false
+                },
+                {
+                    field: 'updateDatetime',
+                    title: '更新时间',
+                    visible: false
+                },*/
+                // {
+                //     title: '操作',
+                //     align: 'center',
+                //     formatter: function(value, row, index) {
+                //         var actions = [];
+                //         actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.editTab(\'' + row.uuid + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                //         actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.uuid + '\')"><i class="fa fa-remove"></i>删除</a>');
+                //         return actions.join('');
+                //     }
+                // }
+                ]
+            };
+            $.table.init(options);
+        });
+
+        initSelect();
+
+        function initSelect(){
+            $.ajax({
+                url: '/edoc/indictmentinfo/getData',
+                async: false,
+                type:'get',
+                data:'json',
+                success:function(res){
+                    // res=JSON.parse(res);
+                    $("#billNum").append("<option value>"+ "所有" +"</option>");
+                    for(var i=0;i<res.length;i++){
+                        console.log(res[i]);
+                        $("#billNum").append("<option value='"+ res[i] +"'>"+ res[i] +"</option>");
+                    }
+                },
+                error:function(){
+                    alert("billNum init fail");
+                }
+            });
+        }
+    </script>
+     <script th:if="${billNum}">
+         $('option[value="[[${billNum}]]"]').attr('selected',true);
+         $.table.search();
+     </script>
+</body>
+</html>

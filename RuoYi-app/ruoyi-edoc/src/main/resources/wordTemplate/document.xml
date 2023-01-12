@@ -1,0 +1,1294 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas"
+    xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex"
+    xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex"
+    xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex"
+    xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex"
+    xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex"
+    xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex"
+    xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex"
+    xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex"
+    xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink"
+    xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d"
+    xmlns:o="urn:schemas-microsoft-com:office:office"
+    xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+    xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing"
+    xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+    xmlns:w10="urn:schemas-microsoft-com:office:word"
+    xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+    xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml"
+    xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml"
+    xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex"
+    xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid"
+    xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml"
+    xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex"
+    xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup"
+    xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk"
+    xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml"
+    xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
+    mc:Ignorable="w14 w15 w16se w16cid w16 w16cex wp14">
+    <w:body>
+        <w:p w14:paraId="139477AA" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00C34499" w:rsidP="00FE0BEC">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="center" />
+                <w:rPr>
+                    <w:rFonts w:ascii="宋体" w:eastAsia="宋体" w:hAnsi="宋体" w:cs="宋体" />
+                    <w:sz w:val="32" />
+                    <w:szCs w:val="32" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="宋体" w:eastAsia="宋体" w:hAnsi="宋体" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="32" />
+                    <w:szCs w:val="32" />
+                </w:rPr>
+                <w:t>${检察院名称}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="41BF7B0A" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00FE0BEC">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="center" />
+                <w:rPr>
+                    <w:rFonts w:ascii="宋体" w:eastAsia="宋体" w:hAnsi="宋体" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="44" />
+                    <w:szCs w:val="44" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="宋体" w:eastAsia="宋体" w:hAnsi="宋体" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="44" />
+                    <w:szCs w:val="44" />
+                </w:rPr>
+                <w:t>公诉案件审查报告</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="4F36C145" w14:textId="02A15A1F" w:rsidR="00151998" w:rsidRDefault="00151998"
+            w:rsidP="00177701">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:rPr>
+                    <w:rFonts w:ascii="宋体" w:eastAsia="宋体" w:hAnsi="宋体" w:cs="宋体" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="030B19E1" w14:textId="77777777" w:rsidR="00151998" w:rsidRPr="00177701"
+            w:rsidRDefault="00151998" w:rsidP="00177701">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:rPr>
+                    <w:rFonts w:ascii="宋体" w:eastAsia="宋体" w:hAnsi="宋体" w:cs="宋体" w:hint="eastAsia" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="54DF828A" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00151998">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>收案时间</w:t>
+            </w:r>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>：</w:t>
+            </w:r>
+            <w:r w:rsidR="00C34499" w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${收案时间}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="1D9FC7AB" w14:textId="2D4D1064" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00151998" w:rsidP="00151998">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>移送起诉案件机</w:t>
+            </w:r>
+            <w:r w:rsidR="00177701" w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>关：</w:t>
+            </w:r>
+            <w:r w:rsidR="00C34499" w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${侦察机关}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="15BBB54E" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00151998">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>移送单位：</w:t>
+            </w:r>
+            <w:r w:rsidR="00C34499" w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${移送单位}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="5D271E11" w14:textId="468B219E" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00151998">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>案由：</w:t>
+            </w:r>
+            <w:r w:rsidR="00C34499" w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${移送案由}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="40B95CE0" w14:textId="05817DF8" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00151998">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>犯罪嫌疑人</w:t>
+            </w:r>
+            <w:r w:rsidR="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>姓名</w:t>
+            </w:r>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>：</w:t>
+            </w:r>
+            <w:r w:rsidR="00C34499" w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${犯罪嫌疑人}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="222CCA07" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00151998">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>侦查机关承办人：</w:t>
+            </w:r>
+            <w:r w:rsidR="00C34499" w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${侦查机关承办人}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="2B4F416A" w14:textId="22A5415A" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00151998" w:rsidP="00151998">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>公诉机关</w:t>
+            </w:r>
+            <w:r w:rsidR="00177701" w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>承办人：</w:t>
+            </w:r>
+            <w:r w:rsidR="00C34499" w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${承办人}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="1A8D554E" w14:textId="53CA393B" w:rsidR="00177701" w:rsidRDefault="00177701"
+            w:rsidP="00151998">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>承办人意见：</w:t>
+            </w:r>
+            <w:r w:rsidR="00C34499" w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${承办人意见}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="100277BC" w14:textId="49B81EF8" w:rsidR="00151998" w:rsidRDefault="00151998"
+            w:rsidP="00151998">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="3788E85C" w14:textId="063023AB" w:rsidR="00151998" w:rsidRPr="00151998"
+            w:rsidRDefault="00151998" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>现已审查终结，报告如下：</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="3B0E43FD" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="562" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>一、犯罪嫌疑人及其他诉讼参与人的基本情况</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="2D5312A9" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>1.</w:t>
+            </w:r>
+            <w:r w:rsidR="00C34499" w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${犯罪嫌疑人基本情况}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="66FF9763" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>2．被害人基本情况。</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="765FA16E" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00C34499" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${被害人基本情况}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="4DC0EB73" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00163A77"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="562" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00163A77">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>二、发、破案经过</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="7D158998" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="001F08F9" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${发破案经过}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="3E4C7EDC" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="17AB9478" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00163A77"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="562" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00163A77">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>三、侦查机关（部门）认定的犯罪事实与意见</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="2C6B6B34" w14:textId="77777777" w:rsidR="001F08F9" w:rsidRPr="00151998"
+            w:rsidRDefault="001F08F9" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${侦查机关部门认定的犯罪事实与意见}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="2FFC78CB" w14:textId="77777777" w:rsidR="001F08F9" w:rsidRPr="00151998"
+            w:rsidRDefault="001F08F9" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="03B2C17E" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00163A77"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="562" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00163A77">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>四、相关当事人、诉讼参与人的意见</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="7BB5A5A8" w14:textId="77777777" w:rsidR="001F08F9" w:rsidRPr="00151998"
+            w:rsidRDefault="001F08F9" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${相关当事人诉讼参与人的意见}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="02A128A7" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="7BA143A4" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00163A77"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="562" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00163A77">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>五、审查认定的事实、证据及分析</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="74ACD487" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>（一）本案证据情况及分析</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="256229D1" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>1.物证：</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="41EB0A9F" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="001F08F9" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:bookmarkStart w:id="0" w:name="_Hlk50492272" />
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${物证}</w:t>
+            </w:r>
+        </w:p>
+        <w:bookmarkEnd w:id="0" />
+        <w:p w14:paraId="71034B7A" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>2.书证：</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="26737FBB" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="001F08F9" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${书证}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="37F7FEE1" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="3FF9BE54" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>3.被害人陈述：</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="6B076605" w14:textId="77777777" w:rsidR="001F08F9" w:rsidRPr="00151998"
+            w:rsidRDefault="001F08F9" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${被害人陈述}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="15E1AEED" w14:textId="77777777" w:rsidR="001F08F9" w:rsidRPr="00151998"
+            w:rsidRDefault="001F08F9" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="0E007D29" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>4.犯罪嫌疑人的供述与辩解：</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="43CE572D" w14:textId="77777777" w:rsidR="001F08F9" w:rsidRPr="00151998"
+            w:rsidRDefault="001F08F9" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${犯罪嫌疑人的供述与辩解}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="5DF3258C" w14:textId="77777777" w:rsidR="001F08F9" w:rsidRPr="00151998"
+            w:rsidRDefault="001F08F9" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="53F461A5" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>5.鉴定意见：</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="6152E575" w14:textId="77777777" w:rsidR="001F08F9" w:rsidRPr="00151998"
+            w:rsidRDefault="001F08F9" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${鉴定意见}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="4439B6A2" w14:textId="77777777" w:rsidR="001F08F9" w:rsidRPr="00151998"
+            w:rsidRDefault="001F08F9" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="75204BBA" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>6.勘验、检查、辨认笔录</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="73060778" w14:textId="77777777" w:rsidR="001F08F9" w:rsidRPr="00151998"
+            w:rsidRDefault="001F08F9" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${勘验检查辨认笔录}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="49596BD2" w14:textId="77777777" w:rsidR="001F08F9" w:rsidRPr="00151998"
+            w:rsidRDefault="001F08F9" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="068A406B" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>（二）经审查认定的事实</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="00D5F648" w14:textId="77777777" w:rsidR="004B04F3" w:rsidRPr="00151998"
+            w:rsidRDefault="004B04F3" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${经审查认定的事实}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="2B55DE7B" w14:textId="77777777" w:rsidR="004B04F3" w:rsidRPr="00151998"
+            w:rsidRDefault="004B04F3" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="1844E29D" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00163A77"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="562" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00163A77">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>六、需要说明的问题</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="25B65C6B" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="004B04F3" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${需要说明的问题}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="6004399E" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00163A77"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="562" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00163A77">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:b />
+                    <w:bCs />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>七、承办人意见</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="1D234232" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="004B04F3" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:ind w:firstLineChars="200" w:firstLine="560" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${承办人意见}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="6CAF4796" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00151998">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="1B5A3404" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00151998">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="6E8A2DEE" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00151998">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="left" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w14:paraId="4610F14E" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="00177701" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="right" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>承办人：</w:t>
+            </w:r>
+            <w:r w:rsidR="004B04F3" w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${承办人}</w:t>
+            </w:r>
+        </w:p>
+        <w:p w14:paraId="13062244" w14:textId="77777777" w:rsidR="00177701" w:rsidRPr="00151998"
+            w:rsidRDefault="004B04F3" w:rsidP="00163A77">
+            <w:pPr>
+                <w:pStyle w:val="a3" />
+                <w:jc w:val="right" />
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00151998">
+                <w:rPr>
+                    <w:rFonts w:ascii="仿宋" w:eastAsia="仿宋" w:hAnsi="仿宋" w:cs="宋体" w:hint="eastAsia" />
+                    <w:sz w:val="28" />
+                    <w:szCs w:val="28" />
+                </w:rPr>
+                <w:t>${生成时间}</w:t>
+            </w:r>
+        </w:p>
+        <w:sectPr w:rsidR="00177701" w:rsidRPr="00151998" w:rsidSect="00151998">
+            <w:pgSz w:w="11906" w:h="16838" />
+            <w:pgMar w:top="2268" w:right="1797" w:bottom="2268" w:left="1797" w:header="851" w:footer="992"
+                w:gutter="0" />
+            <w:cols w:space="425" />
+            <w:docGrid w:type="lines" w:linePitch="312" />
+        </w:sectPr>
+    </w:body>
+</w:document>

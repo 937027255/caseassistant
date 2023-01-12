@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.edoc.mapper.LawCaseInfoMapper">
+    
+    <resultMap type="LawCaseInfo" id="LawCaseInfoResult">
+        <result property="lowCaseNum"    column="low_case_num"    />
+        <result property="lowCaseReason"    column="low_case_reason"    />
+        <result property="lowCaseParty"    column="low_case_party"    />
+        <result property="lowCaseContent"    column="low_case_content"    />
+        <result property="lowCaseCourt"    column="low_case_court"    />
+        <result property="lowCaseDecisionTime"    column="low_case_decision_time"    />
+        <result property="lowCaseExecutiveJudge"    column="low_case_executive_judge"    />
+        <result property="lowCaseDefenceCounsel"    column="low_case_defence_counsel"    />
+        <result property="lowCaseName"    column="low_case_name"    />
+        <result property="recordStatus"    column="record_status"    />
+        <result property="createDatetime"    column="create_datetime"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateDatetime"    column="update_datetime"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="uuid"    column="uuid"    />
+    </resultMap>
+
+    <sql id="selectLawCaseInfoVo">
+        select low_case_num, low_case_reason, low_case_party, low_case_content, low_case_court, low_case_decision_time, low_case_executive_judge, low_case_defence_counsel, low_case_name, record_status, create_datetime, create_by, update_datetime, update_by, uuid from law_case_info
+    </sql>
+
+    <select id="selectLawCaseInfoList" parameterType="LawCaseInfo" resultMap="LawCaseInfoResult">
+        <include refid="selectLawCaseInfoVo"/>
+        where record_status = "1"
+            <if test="lowCaseNum != null  and lowCaseNum != ''"> and low_case_num = #{lowCaseNum}</if>
+            <if test="lowCaseReason != null  and lowCaseReason != ''"> and low_case_reason like concat('%', #{lowCaseReason}, '%')</if>
+            <if test="lowCaseParty != null  and lowCaseParty != ''"> and low_case_party = #{lowCaseParty}</if>
+            <if test="lowCaseContent != null  and lowCaseContent != ''"> and low_case_content like concat('%', #{lowCaseContent}, '%')</if>
+            <if test="lowCaseCourt != null  and lowCaseCourt != ''"> and low_case_court = #{lowCaseCourt}</if>
+            <if test="lowCaseDecisionTime != null "> and low_case_decision_time = #{lowCaseDecisionTime}</if>
+            <if test="lowCaseExecutiveJudge != null  and lowCaseExecutiveJudge != ''"> and low_case_executive_judge = #{lowCaseExecutiveJudge}</if>
+            <if test="lowCaseDefenceCounsel != null  and lowCaseDefenceCounsel != ''"> and low_case_defence_counsel = #{lowCaseDefenceCounsel}</if>
+            <if test="lowCaseName != null  and lowCaseName != ''"> and low_case_name like concat('%', #{lowCaseName}, '%')</if>
+            <if test="recordStatus != null  and recordStatus != ''"> and record_status = #{recordStatus}</if>
+            <if test="createDatetime != null "> and create_datetime = #{createDatetime}</if>
+            <if test="params.beginLowCaseDecisionTime != null and params.beginLowCaseDecisionTime != ''"><!-- 开始时间检索 -->
+                and date_format(law_case_info.low_case_decision_time,'%y%m%d') &gt;= date_format(#{params.beginLowCaseDecisionTime},'%y%m%d')
+            </if>
+            <if test="params.endLowCaseDecisionTime != null and params.endLowCaseDecisionTime != ''"><!-- 结束时间检索 -->
+                and date_format(law_case_info.low_case_decision_time,'%y%m%d') &lt;= date_format(#{params.endLowCaseDecisionTime},'%y%m%d')
+            </if>
+            <if test="createBy != null  and createBy != ''"> and create_by = #{createBy}</if>
+            <if test="updateDatetime != null "> and update_datetime = #{updateDatetime}</if>
+            <if test="updateBy != null  and updateBy != ''"> and update_by = #{updateBy}</if>
+
+    </select>
+    
+    <select id="selectLawCaseInfoById" parameterType="String" resultMap="LawCaseInfoResult">
+        <include refid="selectLawCaseInfoVo"/>
+        where low_case_num = #{lowCaseNum}
+    </select>
+        
+    <insert id="insertLawCaseInfo" parameterType="LawCaseInfo">
+        insert into law_case_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="lowCaseNum != null">low_case_num,</if>
+            <if test="lowCaseReason != null and lowCaseReason != ''">low_case_reason,</if>
+            <if test="lowCaseParty != null and lowCaseParty != ''">low_case_party,</if>
+            <if test="lowCaseContent != null and lowCaseContent != ''">low_case_content,</if>
+            <if test="lowCaseCourt != null and lowCaseCourt != ''">low_case_court,</if>
+            <if test="lowCaseDecisionTime != null">low_case_decision_time,</if>
+            <if test="lowCaseExecutiveJudge != null">low_case_executive_judge,</if>
+            <if test="lowCaseDefenceCounsel != null">low_case_defence_counsel,</if>
+            <if test="lowCaseName != null and lowCaseName != ''">low_case_name,</if>
+            <if test="recordStatus != null">record_status,</if>
+            <if test="createDatetime != null">create_datetime,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="updateDatetime != null">update_datetime,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+            <if test="uuid != null">uuid,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="lowCaseNum != null">#{lowCaseNum},</if>
+            <if test="lowCaseReason != null and lowCaseReason != ''">#{lowCaseReason},</if>
+            <if test="lowCaseParty != null and lowCaseParty != ''">#{lowCaseParty},</if>
+            <if test="lowCaseContent != null and lowCaseContent != ''">#{lowCaseContent},</if>
+            <if test="lowCaseCourt != null and lowCaseCourt != ''">#{lowCaseCourt},</if>
+            <if test="lowCaseDecisionTime != null">#{lowCaseDecisionTime},</if>
+            <if test="lowCaseExecutiveJudge != null">#{lowCaseExecutiveJudge},</if>
+            <if test="lowCaseDefenceCounsel != null">#{lowCaseDefenceCounsel},</if>
+            <if test="lowCaseName != null and lowCaseName != ''">#{lowCaseName},</if>
+            <if test="recordStatus != null">#{recordStatus},</if>
+            <if test="createDatetime != null">#{createDatetime},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="updateDatetime != null">#{updateDatetime},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+            <if test="uuid != null">#{uuid},</if>
+         </trim>
+    </insert>
+
+    <update id="updateLawCaseInfo" parameterType="LawCaseInfo">
+        update law_case_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="lowCaseReason != null and lowCaseReason != ''">low_case_reason = #{lowCaseReason},</if>
+            <if test="lowCaseParty != null and lowCaseParty != ''">low_case_party = #{lowCaseParty},</if>
+            <if test="lowCaseContent != null and lowCaseContent != ''">low_case_content = #{lowCaseContent},</if>
+            <if test="lowCaseCourt != null and lowCaseCourt != ''">low_case_court = #{lowCaseCourt},</if>
+            <if test="lowCaseDecisionTime != null">low_case_decision_time = #{lowCaseDecisionTime},</if>
+            <if test="lowCaseExecutiveJudge != null">low_case_executive_judge = #{lowCaseExecutiveJudge},</if>
+            <if test="lowCaseDefenceCounsel != null">low_case_defence_counsel = #{lowCaseDefenceCounsel},</if>
+            <if test="lowCaseName != null and lowCaseName != ''">low_case_name = #{lowCaseName},</if>
+            <if test="recordStatus != null">record_status = #{recordStatus},</if>
+            <if test="createDatetime != null">create_datetime = #{createDatetime},</if>
+            <if test="createBy != null and createBy != ''">create_by = #{createBy},</if>
+            <if test="updateDatetime != null">update_datetime = #{updateDatetime},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="uuid != null">uuid = #{uuid},</if>
+        </trim>
+        where low_case_num = #{lowCaseNum}
+    </update>
+
+    <delete id="deleteLawCaseInfoById" parameterType="String">
+        delete from law_case_info where low_case_num = #{lowCaseNum}
+    </delete>
+
+    <delete id="deleteLawCaseInfoByIds" parameterType="String">
+        delete from law_case_info where low_case_num in 
+        <foreach item="lowCaseNum" collection="array" open="(" separator="," close=")">
+            #{lowCaseNum}
+        </foreach>
+    </delete>
+
+</mapper>

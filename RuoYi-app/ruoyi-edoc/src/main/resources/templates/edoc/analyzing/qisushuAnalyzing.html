@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+<th:block th:include="include :: header('起诉书分析')" />	
+<link th:href="@{/css/analyzing/timeAxis1.css}" rel="stylesheet"/>
+<link th:href="@{/css/analyzing/biluSelector.css}" rel="stylesheet"/>
+	<link th:href="@{/css/analyzing/analyzing.css}" rel="stylesheet"/>
+
+<style>
+	/* 这一条注入了jstree，临时的方式 */
+	.jstree-anchor.highlight{
+		background: rgba(255, 170, 127, 0.9);
+	}
+</style>
+<link th:href="@{/css/jsTree/style.min.css}" rel="stylesheet"/>
+
+
+
+</head>
+
+<body class="gray-bg">
+	
+<div class="ibox qisushuAnalyzing" id="qisushuAnalyzing">
+	<div class="ibox-content">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="tab-content">
+					<div id="tab-analyze-tree" class="tab-pane active">
+						<div class="row">
+							<div class="analyze_tree_container">
+								<div id="analyze_tree"></div>
+							</div>
+						</div>
+					</div>
+					<div id="tab-doc-tree" class="tab-pane">
+						<div class="row searchBar">
+							<form role="form" class="form-inline">
+								<div class="form-group search_group">
+									<input type="text" placeholder="请输入查找文字" id="search_text" class="form-control">
+									<button id="search_btn" class="btn btn-info" type="submit">查找</button>
+								</div>
+							</form>
+						</div>
+						<div class="row docTree">
+							<div class="tree_container">
+								<div id="doc_tree"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-10">
+				<div class="tabs-container">
+					<ul id="main_tabs" class="nav nav-tabs">
+						<li class="active">
+							<a data-toggle="tab" onclick='tabSelect("#tab-qisu, #tab-analyze-tree")' aria-expanded="true">
+								<span>起诉意见书分析</span>
+							</a>
+						</li>
+						<li class="">
+							<a data-toggle="tab" href="#tab-comment" aria-expanded="false">
+								<span>承办人意见</span>
+							</a>
+						</li>
+						<li class="" id="navtab-search-result" style="display:none;">
+							<a data-toggle="tab" href="#tab-comment" aria-expanded="false">
+								<span>查找结果</span>
+								<i class="fa fa-times-circle"></i>
+							</a>
+						</li>
+						<li class="" id="navtab-doc-view" >
+							<a data-toggle="tab" onclick='tabSelect("#tab-doc-view, #tab-doc-tree")' aria-expanded="false">
+								<span>文档原文</span>
+							</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div id="tab-qisu" class="tab-pane active">
+							<div class="panel-body">
+								<div class="row qisu">
+									<div class="col-md-5 textBox qisushu" id="qisutext"></div>
+									<div class="col-md-7 analyzeTab">
+										<div class="col-md-11 tab-content timeBiluTab">
+											<div class="col-md-12 innerTab cx-time-main tab-pane active" id="cxTime" ></div>
+											<div class="col-md-12 innerTab biluBox tab-pane" id="biluTab">
+												<div class="col-md-12 textBox bilu" id="bilu" ></div>
+												<div class="col-md-12 bilu-line" id="biluSelect"></div>
+											</div>
+										</div>
+										<div class="col-md-1 tabSelector">
+											<div class="functionSelect" id="functionSelect">
+												<a class="btn btn-info functionButton" href="#cxTime" data-toggle="tab">时间线</a>
+												<a class="btn btn-info functionButton" href="#biluTab" data-toggle="tab">笔录</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tab-comment" class="tab-pane">
+							<div class="panel-body">		
+								<div class="comment">
+									<textarea name="commentText" maxlength="500" class="form-control" rows="24" id="commentText"></textarea>
+									<button type="button" class="btn btn-sm btn-primary" onclick="submitComment()" id="commentSave"><i class="fa fa-check"></i>保 存</button>&nbsp;
+								</div>
+							</div>
+						</div>
+						<div id="tab-doc-view" class="tab-pane">
+							<div class="panel-body">		
+								<div class="textBox doc-view" id="doc-view-text">
+									
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+</div>
+
+<th:block th:include="include :: footer" />
+<script th:src="@{/js/jsTree/jstree.min.js}"></script>
+<script th:src="@{/js/analyzing/timeAxis.js}"></script>
+<script th:src="@{/js/analyzing/textBox.js}"></script>
+<script th:src="@{/js/analyzing/eventClicker.js}"></script>
+<script th:src="@{/js/analyzing/biluSelector.js}"></script>
+<script th:src="@{/js/analyzing/docview.js}"></script>
+
+<script type="text/javascript">
+
+	function tabSelect(tabList){
+		var tabList = tabList.split(',');
+		$('.tab-pane').not($('.innerTab')).removeClass('active');
+		$.each(tabList, function(i, e){
+			e = $.trim(e);
+			$(e).addClass('active');
+		})
+	}
+
+	var jsonresult = $.ajax({
+			url:"/edoc/analyzing/api/"+'[[${bill_uid}]]',
+			async:false,
+			success: function(result){
+				if(result.code==500)
+					$.modal.alertError("尚未分析！");
+			}
+		});
+	var analyzingData= jsonresult.responseJSON;
+	var main_doc =  analyzingData.main_doc_list[0];
+	var attach_doc_list = analyzingData.attach_doc_list;
+	var search_result = null;
+	var currentDocView = null;
+
+	var iconDict = {
+		0: "fa fa-square-o",
+		1: "fa fa-check-square",
+		2: "fa fa-minus-square"
+	}
+	
+	$(function () {
+		
+		// 初始化文档结构树
+		initDocTree();
+
+		// 初始化采信结构树
+		initAnalyzeTree();
+		
+		// 起诉意见书显示实例化
+		var param = {
+			textString: main_doc.doc_txt.original_str, // 展示数据
+			paraList: main_doc.doc_txt.para_loc, // 默认空时间线数据
+			id: '#qisutext', // 判定dom ID
+			highlightList: main_doc.doc_fact, // 高亮部分列表
+			spanLabel: 'qisuFact' // span标签class
+		}
+		var textBoxFun = new oParaText(param);
+		
+		// 笔录显示模块实例化
+		param = {
+			data: attach_doc_list,
+			id: 'biluSelect',
+			width: '40px',
+			index: 0,
+		}
+		var oBiluAxiosFun = new oBiluAxios(param);
+		
+		// 时间轴显示实例化
+		param = {
+			data: main_doc.doc_fact, // 数据
+			id: 'cxTime', //dom节点ID
+			index: 0, // 选中时间节点
+			activeColor: '#26a69a', // 选中颜色
+			props: ['time','location','people'], //展示的key
+			then: function (data) {
+				// console.log(data);
+			}, //点击事件回调方法
+			format: function (key, val) {
+				// console.log(key, val);
+				return val
+			}, //数据格式化处理
+		}
+		var oTimeAxiosFun = new oTimeAxios(param);
+		
+		// 起诉意见书到时间线的双向点击事件绑定
+		param = {
+			oriNode: 'qisuFact', // 源节点
+			destNode: 'cx-main-box', // 目标节点
+			relationship: function(a){ // 匹配函数
+				var _ = {};
+				_[a] = 1;
+				return _;
+			},
+			afterclick: function(a){ // 匹配函数
+				return 0
+			},
+			bidirection: true // 是否双向
+		}
+		
+		var oEventClickerFunQisu2Time = new oEventClicker(param);
+
+		// 起诉意见书到笔录时间线的双向点击事件绑定
+		param = {
+			oriNode: 'qisuFact', // 源节点
+			destNode: 'cx-time-bottom', // 目标节点
+			relationship: function(a){ // 匹配函数
+				var destList = analyzingData.relationship[a]
+				var attach_doc = analyzingData.attach_doc_list
+				var arr = {}
+				for (var i = 0; i < destList.length; i++){
+					if(destList[i]!=0){
+						for (var j =0;j<attach_doc.length;j++){
+							for (var n =0;n<attach_doc[j]["attach_doc_fact"].length;n++){
+								if (attach_doc[j]["attach_doc_fact"][n]["no"]==i){
+									arr[j] = 1
+								}
+							}
+						}
+					}
+				 }
+				return arr
+			},
+			afterclick: function(a){ // 匹配函数
+				return 0
+			},
+			bidirection: false // 是否双向
+		}
+		var oEventClickerFunQisu2BiluSelect = new oEventClicker(param);
+		
+		// 起诉意见书到笔录点击事件绑定
+		param = {
+			oriNode: 'qisuFact', // 源节点
+			destNode: 'biluFact', // 目标节点
+			relationship: function(a){
+				var destList = analyzingData.relationship[a]
+				var ansList = {};
+				$.each(destList, function(index, item){  // 映射函数
+					if(item != '0'){
+						ansList[index] = 1
+					};
+				});
+				return ansList;
+			},
+			afterclick: function () {
+			   $('.biluFact.btn.active').each(function (index, item) {
+					$(this).attr("data-toggle", "popover").popover();
+					$(this).attr("data-trigger", "hover");
+					$(this).attr("data-placement", "top");
+					if($(this).hasClass("type1")){
+						$(this).attr("data-content", "完全匹配");
+					}else if($(this).hasClass("type2")){
+						$(this).attr("data-content", "人物不匹配");
+					}else if($(this).hasClass("type3")){
+						$(this).attr("data-content", "地点不匹配");
+					};
+		
+				});
+				pop();
+			},
+			bidirection: false // 是否双向
+		};
+		var oEventClickerFunQisu2Bilu = new oEventClicker(param);
+		
+		// 加载承办人意见
+		loadCommentText();
+		
+		
+		// Tab页切换
+		// $('#functionSelect a').click(function (e) {
+		// 	e.preventDefault();
+		// 	$(this).tab('show');
+		// });
+		
+		// 搜索
+		$("#search_btn").bind("click",function(e){
+			searchText();
+			return false;
+		});
+		
+		
+		// 绑定tab关闭
+		$("#navtab-search-result a i").bind("click",function(e){
+			closeSearchResult(e);
+			return false;  //避免冒泡
+		});
+		$("#navtab-doc-view a i").bind("click",function(e){
+			closeDocView(e);
+			return false;  //避免冒泡
+		});
+		
+		// closeSearchResult();
+	});
+
+
+	function initDocTree(){
+
+		var tree_data = {
+			core:{
+				themes : {
+					variant : "large"
+				},
+				data:[
+					{
+						text:analyzingData.case_id,
+						data: {
+							type: 1
+						},
+						icon:'fa fa-circle'
+					},
+					{
+						text:'笔录',
+						data:{
+							type: 0
+						},
+						state: {
+							opened:	true
+						},
+						icon:'fa fa-folder',
+						children:[]
+					}
+				]
+			}
+		};
+		var attach_data = tree_data.core.data[1].children;
+		attach_doc_list.forEach(function(item, index){
+			var node = {
+				text: '笔录：' + (index +1) ,
+				data:{
+					type: 2,
+					value: index
+				},
+				icon:'fa fa-bars'
+			};
+			attach_data.push(node);
+		});
+
+		$('#doc_tree').jstree(tree_data).on('ready.jstree', function(event, obj) {
+			var highlightList = [];
+			if(search_result != null){
+				highlightList = search_result.main_doc;
+			}
+
+			var param = {
+				textString: main_doc.doc_txt.original_str, // 展示数据
+				paraList: main_doc.doc_txt.para_loc, // 默认空时间线数据
+				id: '#doc-view-text', // 判定dom ID
+				highlightList: highlightList, // 高亮部分列表
+				spanClass: 'search_result' // span标签class
+			}
+			new oDocView(param);
+		});
+		$('#doc_tree').on("select_node.jstree", function (e, data) {
+			if( data.node == null ) return false;
+			currentDocView = {
+				type:data.node.data.type,
+				text: data.node.text,
+				index:data.node.data.value
+			};
+			openCurrentDocView();
+			$("#navtab-doc-view a").click()
+		});
+	}
+	
+	function initAnalyzeTree(){
+		
+		var tree_data = {
+			core:{
+				themes : {
+					variant : "large"
+				},
+				data:[
+
+				]
+			},
+		};
+		var attach_data = tree_data.core.data;
+		var relationMatrix = analyzingData.relationship;
+		var believeMatrix = analyzingData.believe;
+		relationMatrix.forEach(function(qisuFact, row){
+			var node = {
+				text: '起诉意见书事实：' + (row +1) ,
+				data:{
+					type: 1,
+					value: row,
+					a_attr: {class: "no_checkbox"},
+				},
+				icon: false,
+				children:[],
+			};
+			attach_data.push(node);
+			qisuFact.forEach(function(biluFact, col){
+				if(biluFact != '0'){
+					var node = {
+						text: '笔录事实：' + (col +1) ,
+						data:{
+							type: 2,
+							value: col
+						},
+						icon: iconDict[believeMatrix[row][col]]
+					}
+					attach_data[row].children.push(node);
+				}
+			})
+		});
+
+		function findBilu(biluFactId){
+			var attach_doc = analyzingData.attach_doc_list;
+			for (var j =0;j<attach_doc.length;j++){
+				for (var n =0;n<attach_doc[j]["attach_doc_fact"].length;n++){
+					if (attach_doc[j]["attach_doc_fact"][n]["no"]==biluFactId){
+						return j;
+					}
+				}
+			}
+			return 0;
+		}
+
+		$('#analyze_tree').jstree(tree_data);
+		$('#analyze_tree').on("select_node.jstree", function (e, data) {
+			if( data.node == null ) return false;
+			if( data.node.data.type == 2 ){
+				currentFactView = {
+					qisuFact: $('#analyze_tree').jstree("get_node", data.node.parent).data.value,
+					biluFact: data.node.data.value,
+					biluNum: findBilu(data.node.data.value)
+				};
+				$('.qisuFact[data-index=\''+currentFactView.qisuFact+'\']').click();
+				$('#biluSelect ul .cx-time-round[data-index=\''+currentFactView.biluNum+'\']').click();
+				$('.biluFact[data-index=\''+currentFactView.biluFact+'\']').click();
+
+				if( data.event.target.classList[0] == "jstree-icon" ){
+					var oriType = analyzingData.believe[currentFactView.qisuFact][currentFactView.biluFact];
+					var destType = oriType == 2 ? 0 : oriType + 1;
+					$('#'+data.node.a_attr.id+' i.jstree-icon').removeClass(iconDict[oriType]).addClass(iconDict[destType])
+					analyzingData.believe[currentFactView.qisuFact][currentFactView.biluFact] = destType;
+					submitBelieve();
+				}
+				return true;
+			}
+			if( data.node.data.type == 1 ){
+				currentFactView = {
+					qisuFact: data.node.data.value,
+				};
+				$('.qisuFact[data-index=\''+currentFactView.qisuFact+'\']').click();
+				return true;
+			}
+		});
+	}
+
+	
+	//打开当前文档
+	function openCurrentDocView(){
+		if (currentDocView) {
+			var type = currentDocView.type ;
+			if(type == 1){
+				//起诉书
+				openDocViewMainDoc();
+			}else if(type == 2){
+				//笔录
+				openDocViewAttachDoc(currentDocView.index, currentDocView.text);
+			}
+		}
+	}
+	
+	//刷新文档树，展示搜索结果
+	function refreshDocTree(){
+		var highlightClass="highlight";
+		var ele_root=$('#doc_tree>ul:first');
+		var ele_main_doc=ele_root.find("li:first>.jstree-anchor");
+		var ele_attach_doc_list = ele_root.find("li:eq(1)>ul>li>.jstree-anchor");
+		
+		if (search_result && search_result.main_doc.length >0){
+			ele_main_doc.addClass(highlightClass);
+		}else{
+			ele_main_doc.removeClass(highlightClass);
+		}
+		$.each(ele_attach_doc_list, function(index, ele_attach_doc){
+			if (search_result && search_result.attach_doc_list[index].length >0){
+				$(ele_attach_doc).addClass(highlightClass);
+			}else{
+				$(ele_attach_doc).removeClass(highlightClass);
+			}
+		});
+	}
+	
+	
+	function loadCommentText(){
+		//显示批注内容
+		var comment_text = $.ajax(
+			{url:"/edoc/CommentInfo/query/"+'[[${bill_uid}]]',async:false}
+		).responseText;
+		
+		$("#commentText").html(comment_text);
+		
+	}	
+
+	function submitComment(){
+		var commentText = $("#commentText").val();
+		var ajaxJson = {
+			"comment": commentText,
+			"billUid": '[[${bill_uid}]]'
+		}
+		$.ajax({
+			url: "/edoc/CommentInfo/update",
+			async: false,
+			data: JSON.stringify(ajaxJson),
+			dataType: "json",
+			contentType: "application/json;charset=utf-8",
+			type: 'POST',
+			success: function (result){
+				$.modal.alertSuccess("保存成功！");
+			},
+			error: function (result){
+				$.modal.alertError("保存失败！");
+			}
+		})
+	}
+	
+	function closeSearchResult(){
+		$("#navtab-doc-view").parent().find("li:first a:first").tab("show");
+		$("#navtab-search-result").hide();
+	}
+	
+	function openSearchResult(){
+		$("#navtab-search-result").show();
+	}
+	
+	function closeDocView(){
+		$("#navtab-doc-view").parent().find("li:first a:first").tab("show");
+		$("#navtab-doc-view").hide();
+	}
+	
+	function openDocView(title, content){
+		$("#navtab-doc-view>a>span").text(title);
+		$("#doc-view-text").html(content);
+		$("#navtab-doc-view").show();
+		$("#navtab-doc-view a:first").tab("show");
+	}
+	
+	function openDocViewMainDoc(){
+		var highlightList = [];
+		if(search_result != null){
+			highlightList = search_result.main_doc;
+		}
+		
+		openDocView("起诉意见书","");
+		var param = {
+			textString: main_doc.doc_txt.original_str, // 展示数据
+			paraList: main_doc.doc_txt.para_loc, // 默认空时间线数据
+			id: '#doc-view-text', // 判定dom ID
+			highlightList: highlightList, // 高亮部分列表
+			spanClass: 'search_result' // span标签class
+		}
+		new oDocView(param);
+	}
+	
+	function openDocViewAttachDoc(index, title, highlightList ){
+		openDocView(title,"");
+		
+		var highlightList = [];
+		if(search_result != null){
+			highlightList = search_result.attach_doc_list[index];
+		}
+		
+		var attach_doc = attach_doc_list[index];
+		var param = {
+			textString: attach_doc.attach_doc_text.original_str, // 展示数据
+			paraList: attach_doc.attach_doc_text.para_loc, // 默认空时间线数据
+			id: '#doc-view-text', // 判定dom ID
+			highlightList: highlightList, // 高亮部分列表
+			spanClass: 'search_result' // span标签class
+		}
+		new oDocView(param);
+	}
+	
+	function searchText(){
+		var search_text = $("#search_text").val();
+		if(search_text == ''){
+			search_result = null;
+		}else{
+			var result={
+				main_doc:[],
+				attach_doc_list:[]
+			}
+			result.main_doc = searchInParaText(search_text, main_doc.doc_txt.original_str, main_doc.doc_txt.para_loc);
+			
+			$.each(attach_doc_list, function (index, attach_doc) {
+				var tmp = searchInParaText(search_text, attach_doc.attach_doc_text.original_str, attach_doc.attach_doc_text.para_loc);
+				result.attach_doc_list.push(tmp);
+			});	
+			
+			search_result = result;
+		}
+		
+		refreshDocTree();
+		openCurrentDocView();
+	}
+	
+	function searchInParaText(target, text, paraLoc){
+		var list = [];
+		$.each(paraLoc, function (index, item) {
+			var line=text.substring(item, paraLoc[index+1]);
+			var pos = line.indexOf(target);
+			if(pos >=0){
+				list.push({
+					start:item + pos,
+					length:target.length
+				});
+			}
+		});
+		return list;
+	}
+
+	function submitBelieve(){
+		var ajaxJson = {
+			"believe": analyzingData.believe,
+			"billUid": '[[${bill_uid}]]'
+		}
+		$.ajax({
+			url: "/edoc/analyzing/updateBelieve",
+			async: true,
+			data: JSON.stringify(ajaxJson),
+			dataType: "json",
+			contentType: "application/json;charset=utf-8",
+			type: 'POST',
+			success: function (result){
+				// $.modal.alertSuccess("保存成功！");
+			},
+			error: function (result){
+				$.modal.alertError("自动保存失败！");
+			}
+		})
+	}
+
+	window.addEventListener("beforeunload", function (event) {
+
+	});
+
+	$(document).ready(function(){
+	  var windowHeight = $(window).height();
+	  if($('.pad-bottom').height() > windowHeight){
+		  $('.pad-bottom').height(windowHeight-150);
+	  }
+	});
+
+</script>
+</body>
+</html>
+

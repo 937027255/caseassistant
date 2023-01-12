@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.edoc.mapper.ReturnJsonInfoMapper">
+
+    <resultMap type="ReturnJsonInfo" id="ReturnJsonInfoResult">
+        <result property="jsonUid"    column="json_uid"    />
+        <result property="billNum"    column="bill_num"    />
+        <result property="json"    column="json"    />
+        <result property="billUid"    column="bill_uid"    />
+        <result property="createDatetime"    column="create_datetime"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateDatetime"    column="update_datetime"    />
+        <result property="updateBy"    column="update_by"    />
+    </resultMap>
+
+    <sql id="selectReturnJsonInfoVo">
+        select json_uid, bill_num, json, bill_uid, create_datetime, create_by, update_datetime, update_by from return_json_info
+    </sql>
+
+    <select id="selectReturnJsonInfoList" parameterType="ReturnJsonInfo" resultMap="ReturnJsonInfoResult">
+        <include refid="selectReturnJsonInfoVo"/>
+        <where>
+        </where>
+    </select>
+
+    <select id="selectReturnJsonInfoById" parameterType="Long" resultMap="ReturnJsonInfoResult">
+        <include refid="selectReturnJsonInfoVo"/>
+        where json_uid = #{jsonUid}
+    </select>
+
+    <select id="selectReturnJsonInfoByBillUid" parameterType="Long" resultMap="ReturnJsonInfoResult">
+        <include refid="selectReturnJsonInfoVo"/>
+        where bill_uid = #{billUid}
+    </select>
+
+    <insert id="insertReturnJsonInfo" parameterType="ReturnJsonInfo" useGeneratedKeys="true" keyProperty="jsonUid">
+        insert into return_json_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="billNum != null and billNum != ''">bill_num,</if>
+            <if test="json != null and json != ''">json,</if>
+            <if test="billUid != null">bill_uid,</if>
+            <if test="createDatetime != null">create_datetime,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="updateDatetime != null">update_datetime,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="billNum != null and billNum != ''">#{billNum},</if>
+            <if test="json != null and json != ''">#{json},</if>
+            <if test="billUid != null">#{billUid},</if>
+            <if test="createDatetime != null">#{createDatetime},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="updateDatetime != null">#{updateDatetime},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+        </trim>
+    </insert>
+
+    <update id="updateReturnJsonInfo" parameterType="ReturnJsonInfo">
+        update return_json_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="billNum != null and billNum != ''">bill_num = #{billNum},</if>
+            <if test="json != null and json != ''">json = #{json},</if>
+            <if test="billUid != null">bill_uid = #{billUid},</if>
+            <if test="createDatetime != null">create_datetime = #{createDatetime},</if>
+            <if test="createBy != null and createBy != ''">create_by = #{createBy},</if>
+            <if test="updateDatetime != null">update_datetime = #{updateDatetime},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+        </trim>
+        where json_uid = #{jsonUid}
+    </update>
+
+    <delete id="deleteReturnJsonInfoById" parameterType="Long">
+        delete from return_json_info where json_uid = #{jsonUid}
+    </delete>
+
+    <delete id="deleteReturnJsonInfoByIds" parameterType="String">
+        delete from return_json_info where json_uid in
+        <foreach item="jsonUid" collection="array" open="(" separator="," close=")">
+            #{jsonUid}
+        </foreach>
+    </delete>
+
+</mapper>

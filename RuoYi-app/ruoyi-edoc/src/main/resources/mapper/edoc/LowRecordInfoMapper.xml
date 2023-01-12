@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.edoc.mapper.LowRecordInfoMapper">
+    
+    <resultMap type="LowRecordInfo" id="LowRecordInfoResult">
+        <result property="billNum"    column="bill_num"    />
+        <result property="lowRecordNum"    column="low_record_num"    />
+        <result property="lowRecordType"    column="low_record_type"    />
+        <result property="lowRecordTemplate"    column="low_record_template"    />
+        <result property="lowRecordCaseAddress"    column="low_record_case_address"    />
+        <result property="lowRecordInterviewerName"    column="low_record_interviewer_name"    />
+        <result property="lowRecordIntervieweeName"    column="low_record_interviewee_name"    />
+        <result property="lowRecordIntervieweeId"    column="low_record_Interviewee_id"    />
+        <result property="lowRecordDate"    column="low_record_date"    />
+        <result property="lowRecordStartTime"    column="low_record_start_time"    />
+        <result property="lowRecordEndTime"    column="low_record_end_time"    />
+        <result property="lowRecordContent"    column="low_record_content"    />
+        <result property="lowRecordNoteTaker"    column="low_record_note_taker"    />
+        <result property="lowRecordTimes"    column="low_record_times"    />
+        <result property="recordStatus"    column="record_status"    />
+        <result property="createDatetime"    column="create_datetime"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateDatetime"    column="update_datetime"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="uuid"    column="uuid"    />
+    </resultMap>
+
+    <sql id="selectLowRecordInfoVo">
+        select bill_num, low_record_num, low_record_type, low_record_template, low_record_case_address, low_record_interviewer_name, low_record_interviewee_name, low_record_Interviewee_id, low_record_date, low_record_start_time, low_record_end_time, low_record_content, low_record_note_taker, low_record_times, record_status, create_datetime, create_by, update_datetime, update_by, uuid from low_record_info
+    </sql>
+
+    <select id="selectLowRecordInfoList" parameterType="LowRecordInfo" resultMap="LowRecordInfoResult">
+        <include refid="selectLowRecordInfoVo"/>
+        where record_status = "1"
+            <if test="billNum != null  and billNum != ''"> and bill_num = #{billNum}</if>
+            <if test="lowRecordNum != null  and lowRecordNum != ''"> and low_record_num = #{lowRecordNum}</if>
+            <if test="lowRecordType != null  and lowRecordType != ''"> and low_record_type = #{lowRecordType}</if>
+            <if test="lowRecordTemplate != null  and lowRecordTemplate != ''"> and low_record_template = #{lowRecordTemplate}</if>
+            <if test="lowRecordCaseAddress != null  and lowRecordCaseAddress != ''"> and low_record_case_address like concat('%', #{lowRecordCaseAddress}, '%')</if>
+            <if test="lowRecordInterviewerName != null  and lowRecordInterviewerName != ''"> and low_record_interviewer_name like concat('%', #{lowRecordInterviewerName}, '%')</if>
+            <if test="lowRecordIntervieweeName != null  and lowRecordIntervieweeName != ''"> and low_record_interviewee_name like concat('%', #{lowRecordIntervieweeName}, '%')</if>
+            <if test="lowRecordIntervieweeId != null  and lowRecordIntervieweeId != ''"> and low_record_Interviewee_id = #{lowRecordIntervieweeId}</if>
+            <if test="lowRecordDate != null "> and low_record_date = #{lowRecordDate}</if>
+            <if test="lowRecordStartTime != null  and lowRecordStartTime != ''"> and low_record_start_time = #{lowRecordStartTime}</if>
+            <if test="lowRecordEndTime != null  and lowRecordEndTime != ''"> and low_record_end_time = #{lowRecordEndTime}</if>
+            <if test="lowRecordContent != null  and lowRecordContent != ''"> and low_record_content like concat('%', #{lowRecordContent}, '%')</if>
+            <if test="lowRecordNoteTaker != null  and lowRecordNoteTaker != ''"> and low_record_note_taker like concat('%', #{lowRecordNoteTaker}, '%')</if>
+            <if test="lowRecordTimes != null "> and low_record_times = #{lowRecordTimes}</if>
+            <if test="recordStatus != null  and recordStatus != ''"> and record_status = #{recordStatus}</if>
+            <if test="createDatetime != null "> and create_datetime = #{createDatetime}</if>
+            <if test="params.beginLowRecordDate != null and params.beginLowRecordDate != ''"><!-- 开始时间检索 -->
+                and date_format(low_record_info.low_record_date,'%y%m%d') &gt;= date_format(#{params.beginLowRecordDate},'%y%m%d')
+            </if>
+            <if test="params.endLowRecordDate != null and params.endLowRecordDate != ''"><!-- 结束时间检索 -->
+                and date_format(low_record_info.low_record_date,'%y%m%d') &lt;= date_format(#{params.endLowRecordDate},'%y%m%d')
+            </if>
+            <if test="createBy != null  and createBy != ''"> and create_by = #{createBy}</if>
+            <if test="updateDatetime != null "> and update_datetime = #{updateDatetime}</if>
+            <if test="updateBy != null  and updateBy != ''"> and update_by = #{updateBy}</if>
+
+    </select>
+    
+    <select id="selectLowRecordInfoById" parameterType="Long" resultMap="LowRecordInfoResult">
+        <include refid="selectLowRecordInfoVo"/>
+        where uuid = #{uuid}
+    </select>
+
+    <select id="selectLowRecordInfoByBillNum" parameterType="String" resultMap="LowRecordInfoResult">
+        <include refid="selectLowRecordInfoVo"/>
+        where bill_num = #{billNum}
+    </select>
+
+    <select id="selectLowRecordInfoByBillNumList" resultMap="LowRecordInfoResult">
+        <include refid="selectLowRecordInfoVo"/>
+        where bill_num in
+        <foreach collection="list" item="billNumList" index="index" open="(" close=")" separator=",">
+            #{billNumList}
+        </foreach>
+    </select>
+        
+    <insert id="insertLowRecordInfo" parameterType="LowRecordInfo" useGeneratedKeys="true" keyProperty="uuid">
+        insert into low_record_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="billNum != null and billNum != ''">bill_num,</if>
+            <if test="lowRecordNum != null and lowRecordNum != ''">low_record_num,</if>
+            <if test="lowRecordType != null">low_record_type,</if>
+            <if test="lowRecordTemplate != null">low_record_template,</if>
+            <if test="lowRecordCaseAddress != null and lowRecordCaseAddress != ''">low_record_case_address,</if>
+            <if test="lowRecordInterviewerName != null and lowRecordInterviewerName != ''">low_record_interviewer_name,</if>
+            <if test="lowRecordIntervieweeName != null and lowRecordIntervieweeName != ''">low_record_interviewee_name,</if>
+            <if test="lowRecordIntervieweeId != null and lowRecordIntervieweeId != ''">low_record_Interviewee_id,</if>
+            <if test="lowRecordDate != null">low_record_date,</if>
+            <if test="lowRecordStartTime != null and lowRecordStartTime != ''">low_record_start_time,</if>
+            <if test="lowRecordEndTime != null and lowRecordEndTime != ''">low_record_end_time,</if>
+            <if test="lowRecordContent != null and lowRecordContent != ''">low_record_content,</if>
+            <if test="lowRecordNoteTaker != null and lowRecordNoteTaker != ''">low_record_note_taker,</if>
+            <if test="lowRecordTimes != null">low_record_times,</if>
+            <if test="recordStatus != null">record_status,</if>
+            <if test="createDatetime != null">create_datetime,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="updateDatetime != null">update_datetime,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="billNum != null and billNum != ''">#{billNum},</if>
+            <if test="lowRecordNum != null and lowRecordNum != ''">#{lowRecordNum},</if>
+            <if test="lowRecordType != null">#{lowRecordType},</if>
+            <if test="lowRecordTemplate != null">#{lowRecordTemplate},</if>
+            <if test="lowRecordCaseAddress != null and lowRecordCaseAddress != ''">#{lowRecordCaseAddress},</if>
+            <if test="lowRecordInterviewerName != null and lowRecordInterviewerName != ''">#{lowRecordInterviewerName},</if>
+            <if test="lowRecordIntervieweeName != null and lowRecordIntervieweeName != ''">#{lowRecordIntervieweeName},</if>
+            <if test="lowRecordIntervieweeId != null and lowRecordIntervieweeId != ''">#{lowRecordIntervieweeId},</if>
+            <if test="lowRecordDate != null">#{lowRecordDate},</if>
+            <if test="lowRecordStartTime != null and lowRecordStartTime != ''">#{lowRecordStartTime},</if>
+            <if test="lowRecordEndTime != null and lowRecordEndTime != ''">#{lowRecordEndTime},</if>
+            <if test="lowRecordContent != null and lowRecordContent != ''">#{lowRecordContent},</if>
+            <if test="lowRecordNoteTaker != null and lowRecordNoteTaker != ''">#{lowRecordNoteTaker},</if>
+            <if test="lowRecordTimes != null">#{lowRecordTimes},</if>
+            <if test="recordStatus != null">#{recordStatus},</if>
+            <if test="createDatetime != null">#{createDatetime},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="updateDatetime != null">#{updateDatetime},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+         </trim>
+    </insert>
+
+    <update id="updateLowRecordInfo" parameterType="LowRecordInfo">
+        update low_record_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="billNum != null and billNum != ''">bill_num = #{billNum},</if>
+            <if test="lowRecordNum != null and lowRecordNum != ''">low_record_num = #{lowRecordNum},</if>
+            <if test="lowRecordType != null">low_record_type = #{lowRecordType},</if>
+            <if test="lowRecordTemplate != null">low_record_template = #{lowRecordTemplate},</if>
+            <if test="lowRecordCaseAddress != null and lowRecordCaseAddress != ''">low_record_case_address = #{lowRecordCaseAddress},</if>
+            <if test="lowRecordInterviewerName != null and lowRecordInterviewerName != ''">low_record_interviewer_name = #{lowRecordInterviewerName},</if>
+            <if test="lowRecordIntervieweeName != null and lowRecordIntervieweeName != ''">low_record_interviewee_name = #{lowRecordIntervieweeName},</if>
+            <if test="lowRecordIntervieweeId != null and lowRecordIntervieweeId != ''">low_record_Interviewee_id = #{lowRecordIntervieweeId},</if>
+            <if test="lowRecordDate != null">low_record_date = #{lowRecordDate},</if>
+            <if test="lowRecordStartTime != null and lowRecordStartTime != ''">low_record_start_time = #{lowRecordStartTime},</if>
+            <if test="lowRecordEndTime != null and lowRecordEndTime != ''">low_record_end_time = #{lowRecordEndTime},</if>
+            <if test="lowRecordContent != null and lowRecordContent != ''">low_record_content = #{lowRecordContent},</if>
+            <if test="lowRecordNoteTaker != null and lowRecordNoteTaker != ''">low_record_note_taker = #{lowRecordNoteTaker},</if>
+            <if test="lowRecordTimes != null">low_record_times = #{lowRecordTimes},</if>
+            <if test="recordStatus != null">record_status = #{recordStatus},</if>
+            <if test="createDatetime != null">create_datetime = #{createDatetime},</if>
+            <if test="createBy != null and createBy != ''">create_by = #{createBy},</if>
+            <if test="updateDatetime != null">update_datetime = #{updateDatetime},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+        </trim>
+        where uuid = #{uuid}
+    </update>
+
+    <delete id="deleteLowRecordInfoById" parameterType="Long">
+        delete from low_record_info where uuid = #{uuid}
+    </delete>
+
+    <delete id="deleteLowRecordInfoByIds" parameterType="String">
+        delete from low_record_info where uuid in 
+        <foreach item="uuid" collection="array" open="(" separator="," close=")">
+            #{uuid}
+        </foreach>
+    </delete>
+
+</mapper>

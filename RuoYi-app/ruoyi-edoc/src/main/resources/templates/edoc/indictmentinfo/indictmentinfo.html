@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('起诉文书信息列表')" />
+    <th:block th:include="include :: bootstrap-select-css" />
+    <th:block th:include="include :: layout-latest-css" />
+    <th:block th:include="include :: datetimepicker-css" />
+    <link href="../static/css/overRuoyi/overRuoyi.css" th:href="@{/css/overRuoyi/overRuoyi.css}" rel="stylesheet"/>
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <label>案件编号：</label>
+                                <select name="lowCaseNum" id="lowCaseNumList"></select>
+                            </li>
+                            <li>
+                                <label>文书编号：</label>
+                                <input type="text" name="billNum"/>
+                            </li>
+                            <li>
+                                <label>诉讼请求：</label>
+                                <input type="text" name="billClaim"/>
+                            </li>
+                            <li class="select-time">
+                                <label>强制执行时间：</label>
+                                <input type="text" class="time-input" id="beginBillForceExecuteTime" placeholder="开始时间" name="params[beginBillForceExecuteTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endForceBillExecuteTime" placeholder="结束时间" name="params[endBillForceExecuteTime]"/>
+                            </li>
+                            <li class="searchBtn" style="float: right">
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-primary single disabled" onclick="$.operate.editTab()" shiro:hasPermission="edoc:indictmentinfo:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="edoc:indictmentinfo:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-warning" onclick="exportWord('/edoc/indictmentinfo/exportWord')" shiro:hasPermission="edoc:indictmentinfo:export">
+                    <i class="fa fa-download"></i> 导出
+                </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: layout-latest-js" />
+     <th:block th:include="include :: bootstrap-suggest-js" />
+     <script src="../static/js/export/exportWord.js" th:src="@{/js/export/exportWord.js}"></script>
+     <th:block th:include="include :: bootstrap-select-js" />
+     <th:block th:include="include :: datetimepicker-js" />
+    <script th:inline="javascript">
+        var editFlag = [[${@permission.hasPermi('edoc:indictmentinfo:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('edoc:indictmentinfo:remove')}]];
+        var recordStatusDatas = [[${@dict.getType('record_status')}]];
+        var prefix = ctx + "edoc/indictmentinfo";
+
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",
+                exportUrl: prefix + "/export",
+                modalName: "起诉文书信息",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'uuid',
+                    title: 'uuid',
+                    visible: false
+                },
+                {
+                    field: 'lowCaseNum',
+                    title: '案件编号',
+                    visible: false
+                },
+                {
+                    field: 'billNum',
+                    title: '文书编号'
+                },
+                {
+                    field: 'billPlaintiff',
+                    title: '原告'
+                },
+                {
+                    field: 'billDemandant',
+                    title: '被告'
+                },
+                {
+                    field: 'billCrime',
+                    title: '案由'
+                },
+                {
+                    field: 'billThirdParty',
+                    title: '第三人',
+                    visible: false
+                },
+                {
+                    field: 'billProsecutor',
+                    title: '起诉人',
+                    visible: false
+                },
+                {
+                    field: 'billClaim',
+                    title: '诉讼请求'
+                },
+                {
+                    field: 'billPersonId',
+                    title: '嫌疑人身份证号',
+                    visible: false
+                },
+                {
+                    field: 'billForceExecuteTime',
+                    title: '强制执行时间'
+                },
+                {
+                    field: 'billTransDepartment',
+                    title: '移送机关',
+                    visible: false
+                },
+                {
+                    field: 'createDatetime',
+                    title: '创建时间',
+                    visible: false
+                },
+                {
+                    field: 'updateDatetime',
+                    title: '更新时间',
+                    visible: false
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-info btn-xs ' + 'analyzeFlag' + '" href="javascript:void(0)" onclick="analyzingService(\'analyzing/analyzer/'+row.uuid+'\')"><i class="fa fa-edit"></i>分析</a> '); // TODO: 异步请求js函数
+                        actions.push('<a class="btn btn-info btn-xs ' + 'resultFlag' + '" href="javascript:void(0)" onclick="$.modal.openTab(\'查看分析结果\', \'/edoc/analyzing/uid/'+row.uuid+'\')"><i class="fa fa-edit"></i>查看结果</a> ');
+                        actions.push('<a class="btn btn-success btn-xs ' + 'biluFlag' + '" href="javascript:void(0)" onclick="$.modal.openTab(\'言词证据事实摘要\', \'/edoc/summarycollection/uid/'+row.uuid+'\')"><i class="fa fa-edit"></i>言词证据事实摘要</a> ');
+                        // actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.uuid + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        return actions.join('');
+                    }
+                }]
+            };
+            $.table.init(options);
+        });
+
+        $("#datetimepicker-startTime").datetimepicker({
+            format: 'yyyy-mm-dd',
+            minView: "month",
+            todayBtn:  true,
+            autoclose: true,
+            endDate : new Date(),
+        }).on('changeDate', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            var startTime = event.date;
+            $('#datetimepicker-endTime').datetimepicker('beginForceExecuteTime', startTime);
+        });
+
+        $("#datetimepicker-endTime").datetimepicker({
+            format: 'yyyy-mm-dd',
+            minView: "month",
+            todayBtn:  true,
+            autoclose: true,
+            endDate : new Date(),
+        }).on('changeDate', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            var endTime = event.date;
+            $("#datetimepicker-startTime").datetimepicker('endForceExecuteTime', endTime);
+        });
+
+        $(function(){
+            initSelect();
+        })
+        function initSelect(){
+            $.ajax({
+                url:prefix + '/getData',
+                type:'get',
+                data:'json',
+                success:function(res){
+                    $("#lowCaseNumList").append("<option value>"+ "所有" +"</option>");
+                    for(var i=0;i<res.length;i++){
+                        console.log(res[i]);
+                        $("#lowCaseNumList").append("<option value='"+ res[i] +"'>"+ res[i] +"</option>");
+                    }
+                },
+                error:function(){
+                    alert("lowCaseNum init fail");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

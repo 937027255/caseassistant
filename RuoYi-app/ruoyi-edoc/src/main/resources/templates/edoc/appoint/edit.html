@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('指派承办人')" />
+    <th:block th:include="include :: datetimepicker-css" />
+    <th:block th:include="include :: select2-css" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-indictmentinfo-edit" th:object="${indictmentBillInfo}">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">承办人：</label>
+                    <div class="col-sm-8">
+                        <select id="post" class="form-control select2-multiple" multiple>
+                            <option th:each="post:${posts}" th:value="${post.userId}" th:text="${post.userName}" th:selected="${post.flag}" th:disabled="${post.status == '1'}"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+<!--    <div class="row">-->
+<!--        <div class="col-sm-offset-5 col-sm-10">-->
+<!--            <button type="button" class="btn btn-sm btn-primary" onclick="submitHandler()"><i class="fa fa-check"></i>保 存</button>&nbsp;-->
+<!--            <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i class="fa fa-reply-all"></i>关 闭 </button>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <th:block th:include="include :: select2-js" />
+    <script th:inline="javascript">
+        var prefix = ctx + "edoc/appoint";
+        $("#form-indictmentinfo-edit").validate({
+            focusCleanup: true
+        });
+
+
+        function submitHandler() {
+            var pathname = window.location.pathname.split('/')
+            var billUid = pathname[pathname.length - 1]
+            if ($.validate.form()) {
+                $.ajax({
+                    cache : true,
+                    type : "POST",
+                    contentType: 'application/json',
+                    url : ctx + "edoc/appoint/edit",
+                    data : JSON.stringify({responseBy: $('#post').val(),
+                    billUid: billUid}),
+                    async : false,
+                    error : function(request) {
+                        $.modal.alertError("操作失败");
+                    },
+                    success : function(data) {
+                        $.operate.successCallback(data);
+                    }
+                });
+            }
+        }
+
+        $("input[name='billForceExecuteTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $(function() {
+            $('#post').select2({
+                placeholder: "请选择承办人",
+                allowClear: true
+            });
+        })
+    </script>
+</body>
+</html>

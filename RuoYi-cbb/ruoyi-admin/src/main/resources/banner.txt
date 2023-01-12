@@ -1,0 +1,2 @@
+Application Version: ${ruoyi.version}
+Application Name: ${ruoyi.name}

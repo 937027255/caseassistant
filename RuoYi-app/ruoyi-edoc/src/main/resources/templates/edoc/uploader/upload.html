@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('上传新案件')" />
+    <th:block th:include="include :: bootstrap-fileinput-css" />
+</head>
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>上传新案件</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        <label class="font-noraml">将同一案件的所有的起诉文书和笔录文件拖到下框中</label>
+                        <form class="file-loading" id="fileForm">
+                            <input id="fileinput-demo-1" class="file" type="file" name="file" multiple webkitdirectory data-min-file-count="1" \
+                                   data-theme="fas"  data-drop-zone-title="将同一案件的所有的起诉文书和笔录文件拖到这里">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:include="include :: footer" />
+<th:block th:include="include :: bootstrap-fileinput-js" />
+<script th:src="@{/ajax/libs/bootstrap-fileinput/locales/zh.js}"></script>
+<script type="text/javascript">
+    $("#fileinput-demo-1").fileinput({
+        uploadUrl: '/edoc/upload/upload',
+        uploadAsync: false,
+        allowedFileExtensions: ['txt'],
+    });
+    $("#fileinput-demo-1").on("fileerror", function (event, data, previewId, index) {
+        console.log(data);
+    });
+</script>
+</body>
+</html>

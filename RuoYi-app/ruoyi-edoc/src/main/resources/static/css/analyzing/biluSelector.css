@@ -1,0 +1,108 @@
+
+.bilu-line-box{
+	margin: 0 2%;
+	white-space:nowrap;
+	height: 100%;
+	width: calc(100% - 62px);
+	overflow: hidden;
+	padding: 1% 5%;
+}
+
+.bilu-line-box ul{
+	white-space:nowrap;
+	padding: 0;
+}
+.bilu-line-box li{
+	outline: none;
+	display: inline-block;
+	list-style-type: none;
+}
+.button {
+    background-color: #e9e9e9; /* Green */
+    border: black;
+    color: #000000;
+    padding: 8px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+}
+.bilu-line{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0px;
+	height: 10%;
+}
+.bilu-line > span{
+	width: 20px;
+	height: 47px;
+	line-height: 47px;
+	float: left;
+	font-size: 30px;
+	font-weight: 600;
+	color: rgb(149, 149, 149);
+	cursor: pointer;
+	/*font-family: '宋体'*/
+}
+
+.cx-round-box{
+	position: relative;
+	width: 12px;
+	height: 100%;
+}
+.cx-time-round{
+	position: relative;
+	width: 12px;
+	height: 12px;
+	top: 10px;
+	margin-top: -6px;
+	background: rgba(49, 49, 49, 0.8);
+	border-radius: 50%;
+	cursor: pointer;
+}
+.cx-time-top{
+	position: absolute;
+	bottom: 50%;
+	left: -15px;
+	width: 120px;
+	min-height: 20px;
+	height: auto;
+	font-size: 14px;
+	margin-bottom: 12px;
+}
+.cx-time-bottom{
+	position: absolute;
+	left: -10px;
+	min-height: 20px;
+	height: auto;
+	font-size: 14px;
+	margin-top: 12px;
+}
+.cx-time-line{
+	position: relative;
+	width: 150px;
+	height: 100%;
+	top:3px
+}
+.cx-time-line:after{
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 2px;
+	top: 50%;
+	background: rgba(149, 149, 149, 0.8)
+}
+.cx-time-round:hover,.cx-time-active .cx-time-round{
+    width: 16px;
+    height: 16px;
+    top: 13px;
+    left: -2px;
+    background: rgba(181, 34, 23, 0.8);
+}
+.cx-time-active1 > div{
+	color: rgb(129,71,181);
+}
+.cx-time-bottom.active{
+    color: indianred;
+}

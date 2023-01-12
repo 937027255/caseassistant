@@ -1,0 +1,271 @@
+body {
+    font-size:1.6em !important;
+}
+
+#functionDrop{
+    display: block;
+    text-align: center;
+    height: 30px;
+    width: 60px;
+    border: solid;
+    border-width: 1.5px;
+    border-radius: 4px;
+    border-color: #00a2d4;
+}
+.functionButton{
+    display: block;
+    text-align: center;
+    height: 30px;
+    width: 100%;
+    /*border: solid;*/
+    /*border-width: 1.5px;*/
+    /*border-radius: 4px;*/
+    /*border-color: #00a2d4;*/
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.tabSelector{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.dropdownItems a {
+    display: block;  /* 设置成block元素，则每行只显示一个<a> */
+    text-decoration: none; /* 去掉<a>的下划线 */
+    color: rgba(0, 0, 0, 1);
+    /*font-size: medium;*/
+}
+.dropdownItems a:hover {
+    color: #000000;
+}
+
+.qisushuAnalyzing{
+    height: 100%;
+    margin: 5px;
+}
+
+.qisushuAnalyzing div:not(.tab-content):not(.searchBar):not(.para-box):not(.biluBox div){
+    height: 100%;
+}
+
+.tab-content{
+    height: 95%;
+}
+
+.popover{
+    height: auto;
+}
+
+.qisu{
+    height: 100%;
+}
+.comment{
+    margin-top: 5px;
+    /* height: 580px; */
+}
+
+.timeBiluTab{
+    height: 100%;
+}
+
+.analyzeTab{
+    margin-top:-15px;
+    height: 100%;
+    padding: 0;
+}
+
+.textBox {
+    /*float: left;*/
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    /*font-size: 16px;*/
+    resize: both;
+    overflow: auto;
+}
+
+.fact{
+    margin: 0.5em;
+    line-height: 1.5em;
+}
+
+.biluBox{
+    height: 100%;
+    padding: 0px;
+}
+
+.textBox.bilu{
+    height: 90%;
+}
+
+
+.textBox.qisushu{
+    margin-top:-15px;
+    height: 100%;
+}
+
+.textBox.doc-view{
+    margin-top:-15px;
+    width: 100%;
+    height: 100%;
+}
+
+
+#commentSave{
+    margin: 0.25%;
+    float: right;
+}
+
+.cx-time-main{
+    height: 100%;
+}
+.charLine{
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    /*font-size: 16px;*/
+    resize: none;
+    height: 24px;
+}
+
+.para-box{
+    height: auto;
+    font-family: "Fangsong", "STFangsong";
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.para-box:nth-child(n){
+    text-align: left;
+    white-space:normal;
+    word-break:break-all;
+    word-wrap:break-word;
+}
+
+.qisuFact.btn{
+    background: rgba(12, 101, 160, 0.1);
+    padding: 0;
+    font-size: 8px;
+}
+
+.biluFact.btn{
+    background: rgba(12, 101, 160, 0.1);
+    padding: 0;
+    font-size: 8px;
+}
+
+
+span.active{
+    background: #5481c4;
+    color: #fff;
+}
+
+span.type1.active{
+    background: #5481c4;
+    color: #fff;
+}
+
+span.type2.active{
+    background: #fda670;
+    color: #fff;
+}
+
+span.type3.active{
+    background: #63cfcf;
+    color: #fff;
+}
+
+.cx-main-box.active{
+    background: #52acac;
+    color: #fff;
+}
+
+.popover{
+    padding: 0px;
+    font-size: 1.2em;
+}
+
+#commentText{
+    height: 95%;
+    font-family: "Fangsong", "STFangsong";
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+
+/* New style*/
+
+.top_bar{
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+
+.analyze_tree_container{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    overflow: auto;
+}
+
+.tree_container{
+    height: 95%;
+    margin: 15px 2px 5px 2px;
+    padding: 5px 5px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    overflow: auto;
+
+}
+
+.searchBar{
+    height: 3%;
+}
+
+.jstree-open > .jstree-anchor > .fa-folder:before {
+    content: "\f07c";
+}
+
+.jstree-default .jstree-icon.none {
+    width: 0;
+}
+
+/* 这一条注入在这里，临时方案 */
+.jstree-anchor.highlight{
+    color: #fff;
+}
+
+.search_group{
+    width: 100%;
+}
+
+#search_text{
+    width: 74%;
+    margin-left:5px;
+}
+#search_btn{
+    width: 20%;
+    height: 31px;
+    /* padding:3px 12px 4px 12px; */
+}
+
+.search_result{
+    background: #fda670;
+    color: #fff;
+}
+
+#main_tabs{
+    height: 5%;
+    min-height: 40px;
+}
+
+
+
+#main_tabs a>span{
+    margin-right:5px;
+}

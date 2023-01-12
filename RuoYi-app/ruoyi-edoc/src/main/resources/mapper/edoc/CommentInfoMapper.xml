@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.edoc.mapper.CommentInfoMapper">
+    
+    <resultMap type="CommentInfo" id="CommentInfoResult">
+        <result property="commentNum"    column="comment_num"    />
+        <result property="billNum"    column="bill_num"    />
+        <result property="commentText"    column="comment_text"    />
+        <result property="billNumUuid"    column="bill_num_uuid"    />
+        <result property="recordStatus"    column="record_status"    />
+        <result property="createDatetime"    column="create_datetime"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateDatetime"    column="update_datetime"    />
+        <result property="updateBy"    column="update_by"    />
+    </resultMap>
+
+    <sql id="selectCommentInfoVo">
+        select comment_num, bill_num, comment_text, bill_num_uuid, record_status, create_datetime, create_by, update_datetime, update_by from comment_info
+    </sql>
+
+    <select id="selectCommentInfoList" parameterType="CommentInfo" resultMap="CommentInfoResult">
+        <include refid="selectCommentInfoVo"/>
+        <where>  
+            <if test="billNum != null  and billNum != ''"> and bill_num = #{billNum}</if>
+            <if test="commentText != null  and commentText != ''"> and comment_text = #{commentText}</if>
+            <if test="recordStatus != null "> and record_status = #{recordStatus}</if>
+            <if test="createDatetime != null "> and create_datetime = #{createDatetime}</if>
+            <if test="updateDatetime != null "> and update_datetime = #{updateDatetime}</if>
+        </where>
+    </select>
+    
+    <select id="selectCommentInfoById" parameterType="Long" resultMap="CommentInfoResult">
+        <include refid="selectCommentInfoVo"/>
+        where comment_num = #{commentNum}
+    </select>
+        
+    <insert id="insertCommentInfo" parameterType="CommentInfo" useGeneratedKeys="true" keyProperty="commentNum">
+        insert into comment_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="billNum != null and billNum != ''">bill_num,</if>
+            <if test="commentText != null and commentText != ''">comment_text,</if>
+            <if test="billNumUuid != null">bill_num_uuid,</if>
+            <if test="recordStatus != null">record_status,</if>
+            <if test="createDatetime != null">create_datetime,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="updateDatetime != null">update_datetime,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="billNum != null and billNum != ''">#{billNum},</if>
+            <if test="commentText != null and commentText != ''">#{commentText},</if>
+            <if test="billNumUuid != null">#{billNumUuid},</if>
+            <if test="recordStatus != null">#{recordStatus},</if>
+            <if test="createDatetime != null">#{createDatetime},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="updateDatetime != null">#{updateDatetime},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+         </trim>
+    </insert>
+
+    <update id="updateCommentInfo" parameterType="CommentInfo">
+        update comment_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="billNum != null and billNum != ''">bill_num = #{billNum},</if>
+            <if test="commentText != null and commentText != ''">comment_text = #{commentText},</if>
+            <if test="billNumUuid != null">bill_num_uuid = #{billNumUuid},</if>
+            <if test="recordStatus != null">record_status = #{recordStatus},</if>
+            <if test="createDatetime != null">create_datetime = #{createDatetime},</if>
+            <if test="createBy != null and createBy != ''">create_by = #{createBy},</if>
+            <if test="updateDatetime != null">update_datetime = #{updateDatetime},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+        </trim>
+        where comment_num = #{commentNum}
+    </update>
+
+    <delete id="deleteCommentInfoById" parameterType="Long">
+        delete from comment_info where comment_num = #{commentNum}
+    </delete>
+
+    <delete id="deleteCommentInfoByIds" parameterType="String">
+        delete from comment_info where comment_num in 
+        <foreach item="commentNum" collection="array" open="(" separator="," close=")">
+            #{commentNum}
+        </foreach>
+    </delete>
+
+    <select id="selectCommentInfoByBillUuid" parameterType="Long" resultMap="CommentInfoResult">
+        <include refid="selectCommentInfoVo"/>
+        where bill_num_uuid = #{billNumUuid}
+    </select>
+
+    <insert id="insertCommentInfoByBillUuid" parameterType="CommentInfo" useGeneratedKeys="true" keyProperty="bill_num_uuid">
+        insert into comment_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="billNum != null and billNum != ''">bill_num,</if>
+            <if test="commentText != null and commentText != ''">comment_text,</if>
+            <if test="billNumUuid != null">bill_num_uuid,</if>
+            <if test="recordStatus != null">record_status,</if>
+            <if test="createDatetime != null">create_datetime,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="updateDatetime != null">update_datetime,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="billNum != null and billNum != ''">#{billNum},</if>
+            <if test="commentText != null and commentText != ''">#{commentText},</if>
+            <if test="billNumUuid != null">#{billNumUuid},</if>
+            <if test="recordStatus != null">#{recordStatus},</if>
+            <if test="createDatetime != null">#{createDatetime},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="updateDatetime != null">#{updateDatetime},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+        </trim>
+    </insert>
+
+    <update id="updateCommentInfoByBillUuid" parameterType="CommentInfo">
+        update comment_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="billNum != null and billNum != ''">bill_num = #{billNum},</if>
+            <if test="commentText != null and commentText != ''">comment_text = #{commentText},</if>
+            <if test="billNumUuid != null">bill_num_uuid = #{billNumUuid},</if>
+            <if test="recordStatus != null">record_status = #{recordStatus},</if>
+            <if test="createDatetime != null">create_datetime = #{createDatetime},</if>
+            <if test="createBy != null and createBy != ''">create_by = #{createBy},</if>
+            <if test="updateDatetime != null">update_datetime = #{updateDatetime},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+        </trim>
+        where bill_num_uuid = #{billNumUuid}
+    </update>
+
+</mapper>

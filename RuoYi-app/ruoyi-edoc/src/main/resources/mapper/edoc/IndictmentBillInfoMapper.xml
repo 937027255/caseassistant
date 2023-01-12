@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.edoc.mapper.IndictmentBillInfoMapper">
+    
+    <resultMap type="IndictmentBillInfo" id="IndictmentBillInfoResult">
+        <result property="lowCaseNum"    column="low_case_num"    />
+        <result property="billNum"    column="bill_num"    />
+        <result property="billPlaintiff"    column="bill_plaintiff"    />
+        <result property="billDemandant"    column="bill_demandant"    />
+        <result property="billThirdParty"    column="bill_third_party"    />
+        <result property="billProsecutor"    column="bill_prosecutor"    />
+        <result property="billClaim"    column="bill_claim"    />
+        <result property="billFactAndReason"    column="bill_fact_and_reason"    />
+        <result property="recordStatus"    column="record_status"    />
+        <result property="createDatetime"    column="create_datetime"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateDatetime"    column="update_datetime"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="billPersonId"    column="bill_person_id"    />
+        <result property="billForceExecuteTime"    column="bill_force_execute_time"    />
+        <result property="billTransDepartment"    column="bill_trans_department"    />
+        <result property="uuid"    column="uuid"    />
+        <result property="billCrime"    column="bill_crime"    />
+        <result property="responseBy"    column="response_by"/>
+    </resultMap>
+
+    <sql id="selectIndictmentBillInfoVo">
+        select low_case_num, bill_num, bill_plaintiff, bill_demandant, bill_third_party, bill_prosecutor, bill_claim, bill_fact_and_reason, record_status, create_datetime, create_by, update_datetime, update_by, bill_person_id, bill_force_execute_time, bill_trans_department, uuid, bill_crime, response_by from indictment_bill_info
+    </sql>
+
+    <select id="selectIndictmentBillInfoList" parameterType="IndictmentBillInfo" resultMap="IndictmentBillInfoResult">
+        <include refid="selectIndictmentBillInfoVo"/>
+        where  record_status = "1"
+            <if test="lowCaseNum != null  and lowCaseNum != ''"> and low_case_num = #{lowCaseNum}</if>
+            <if test="billNum != null  and billNum != ''"> and bill_num like concat('%', #{billNum}, '%')</if>
+            <if test="billPlaintiff != null  and billPlaintiff != ''"> and bill_plaintiff = #{billPlaintiff}</if>
+            <if test="billDemandant != null  and billDemandant != ''"> and bill_demandant = #{billDemandant}</if>
+            <if test="billThirdParty != null  and billThirdParty != ''"> and bill_third_party = #{billThirdParty}</if>
+            <if test="billProsecutor != null  and billProsecutor != ''"> and bill_prosecutor = #{billProsecutor}</if>
+            <if test="billClaim != null  and billClaim != ''"> and bill_claim like concat('%', #{billClaim}, '%')</if>
+            <if test="billFactAndReason != null  and billFactAndReason != ''"> and bill_fact_and_reason like concat('%', #{billFactAndReason}, '%'),</if>
+            <if test="recordStatus != null  and recordStatus != ''"> and record_status = #{recordStatus}</if>
+            <if test="createDatetime != null "> and create_datetime = #{createDatetime}</if>
+            <if test="createBy != null  and createBy != ''"> and create_by = #{createBy}</if>
+            <if test="updateDatetime != null "> and update_datetime = #{updateDatetime}</if>
+            <if test="updateBy != null  and updateBy != ''"> and update_by = #{updateBy}</if>
+            <if test="billPersonId != null  and billPersonId != ''"> and bill_person_id = #{billPersonId}</if>
+            <if test="billForceExecuteTime != null "> and bill_force_execute_time = #{billForceExecuteTime}</if>
+            <if test="params.beginBillForceExecuteTime != null and params.beginBillForceExecuteTime != ''"><!-- 开始时间检索 -->
+                and date_format(indictment_bill_info.bill_force_execute_time,'%y%m%d') &gt;= date_format(#{params.beginBillForceExecuteTime},'%y%m%d')
+            </if>
+            <if test="params.endBillForceExecuteTime != null and params.endBillForceExecuteTime != ''"><!-- 结束时间检索 -->
+                and date_format(indictment_bill_info.bill_force_execute_time,'%y%m%d') &lt;= date_format(#{params.endBillForceExecuteTime},'%y%m%d')
+            </if>
+            <if test="billTransDepartment != null  and billTransDepartment != ''"> and bill_trans_department like concat('%', #{billTransDepartment}, '%'),</if>
+            <if test="billCrime != null  and billCrime != ''"> and bill_crime like concat('%', #{billCrime}, '%'),</if>
+            <if test="responseBy == 'disappointed'"> and response_by = '',</if>
+            <if test="responseBy == 'appointed'"> and response_by <![CDATA[ <> ]]> ''</if>
+
+    </select>
+    
+    <select id="selectIndictmentBillInfoById" parameterType="Long" resultMap="IndictmentBillInfoResult">
+        <include refid="selectIndictmentBillInfoVo"/>
+        where uuid = #{uuid}
+    </select>
+
+    <select id="selectIndictmentBillInfoByBillNum" parameterType="String" resultMap="IndictmentBillInfoResult">
+        <include refid="selectIndictmentBillInfoVo"/>
+        where bill_num = #{billNum}
+    </select>
+        
+    <insert id="insertIndictmentBillInfo" parameterType="IndictmentBillInfo" useGeneratedKeys="true" keyProperty="uuid">
+        insert into indictment_bill_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="lowCaseNum != null and lowCaseNum != ''">low_case_num,</if>
+            <if test="billNum != null and billNum != ''">bill_num,</if>
+            <if test="billPlaintiff != null and billPlaintiff != ''">bill_plaintiff,</if>
+            <if test="billDemandant != null and billDemandant != ''">bill_demandant,</if>
+            <if test="billThirdParty != null">bill_third_party,</if>
+            <if test="billProsecutor != null and billProsecutor != ''">bill_prosecutor,</if>
+            <if test="billClaim != null and billClaim != ''">bill_claim,</if>
+            <if test="billFactAndReason != null and billFactAndReason != ''">bill_fact_and_reason,</if>
+            <if test="recordStatus != null">record_status,</if>
+            <if test="createDatetime != null">create_datetime,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="updateDatetime != null">update_datetime,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+            <if test="billPersonId != null">bill_person_id,</if>
+            <if test="billForceExecuteTime != null">bill_force_execute_time,</if>
+            <if test="billTransDepartment != null">bill_trans_department,</if>
+            <if test="billCrime != null and billCrime != ''">bill_crime,</if>
+            <if test="responseBy != null">response_by,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="lowCaseNum != null and lowCaseNum != ''">#{lowCaseNum},</if>
+            <if test="billNum != null and billNum != ''">#{billNum},</if>
+            <if test="billPlaintiff != null and billPlaintiff != ''">#{billPlaintiff},</if>
+            <if test="billDemandant != null and billDemandant != ''">#{billDemandant},</if>
+            <if test="billThirdParty != null">#{billThirdParty},</if>
+            <if test="billProsecutor != null and billProsecutor != ''">#{billProsecutor},</if>
+            <if test="billClaim != null and billClaim != ''">#{billClaim},</if>
+            <if test="billFactAndReason != null and billFactAndReason != ''">#{billFactAndReason},</if>
+            <if test="recordStatus != null">#{recordStatus},</if>
+            <if test="createDatetime != null">#{createDatetime},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="updateDatetime != null">#{updateDatetime},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+            <if test="billPersonId != null">#{billPersonId},</if>
+            <if test="billForceExecuteTime != null">#{billForceExecuteTime},</if>
+            <if test="billTransDepartment != null">#{billTransDepartment},</if>
+            <if test="billCrime != null and billCrime != ''">#{billCrime},</if>
+            <if test="responseBy != null">#{responseBy},</if>
+         </trim>
+    </insert>
+
+    <update id="updateIndictmentBillInfo" parameterType="IndictmentBillInfo">
+        update indictment_bill_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="lowCaseNum != null and lowCaseNum != ''">low_case_num = #{lowCaseNum},</if>
+            <if test="billNum != null and billNum != ''">bill_num = #{billNum},</if>
+            <if test="billPlaintiff != null and billPlaintiff != ''">bill_plaintiff = #{billPlaintiff},</if>
+            <if test="billDemandant != null and billDemandant != ''">bill_demandant = #{billDemandant},</if>
+            <if test="billThirdParty != null">bill_third_party = #{billThirdParty},</if>
+            <if test="billProsecutor != null and billProsecutor != ''">bill_prosecutor = #{billProsecutor},</if>
+            <if test="billClaim != null and billClaim != ''">bill_claim = #{billClaim},</if>
+            <if test="billFactAndReason != null and billFactAndReason != ''">bill_fact_and_reason = #{billFactAndReason},</if>
+            <if test="recordStatus != null">record_status = #{recordStatus},</if>
+            <if test="createDatetime != null">create_datetime = #{createDatetime},</if>
+            <if test="createBy != null and createBy != ''">create_by = #{createBy},</if>
+            <if test="updateDatetime != null">update_datetime = #{updateDatetime},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="billPersonId != null">bill_person_id = #{billPersonId},</if>
+            <if test="billForceExecuteTime != null">bill_force_execute_time = #{billForceExecuteTime},</if>
+            <if test="billTransDepartment != null">bill_trans_department = #{billTransDepartment},</if>
+            <if test="billCrime != null and billCrime != ''">bill_crime = #{billCrime},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="responseBy != null">response_by = #{responseBy},</if>
+        </trim>
+        where uuid = #{uuid}
+    </update>
+
+    <delete id="deleteIndictmentBillInfoById" parameterType="Long">
+        delete from indictment_bill_info where uuid = #{uuid}
+    </delete>
+
+    <delete id="deleteIndictmentBillInfoByIds" parameterType="String">
+        delete from indictment_bill_info where uuid in 
+        <foreach item="uuid" collection="array" open="(" separator="," close=")">
+            #{uuid}
+        </foreach>
+    </delete>
+
+    <select id="selectIndictmentBillInfoListByResponseBy" parameterType="IndictmentBillInfo" resultMap="IndictmentBillInfoResult">
+        <include refid="selectIndictmentBillInfoVo"/>
+        where  record_status = "1"
+        <if test="lowCaseNum != null  and lowCaseNum != ''"> and low_case_num = #{lowCaseNum}</if>
+        <if test="billNum != null  and billNum != ''"> and bill_num like concat('%', #{billNum}, '%')</if>
+        <if test="billPlaintiff != null  and billPlaintiff != ''"> and bill_plaintiff = #{billPlaintiff}</if>
+        <if test="billDemandant != null  and billDemandant != ''"> and bill_demandant = #{billDemandant}</if>
+        <if test="billThirdParty != null  and billThirdParty != ''"> and bill_third_party = #{billThirdParty}</if>
+        <if test="billProsecutor != null  and billProsecutor != ''"> and bill_prosecutor = #{billProsecutor}</if>
+        <if test="billClaim != null  and billClaim != ''"> and bill_claim like concat('%', #{billClaim}, '%')</if>
+        <if test="billFactAndReason != null  and billFactAndReason != ''"> and bill_fact_and_reason like concat('%', #{billFactAndReason}, '%')</if>
+        <if test="recordStatus != null  and recordStatus != ''"> and record_status = #{recordStatus}</if>
+        <if test="createDatetime != null "> and create_datetime = #{createDatetime}</if>
+        <if test="createBy != null  and createBy != ''"> and create_by = #{createBy}</if>
+        <if test="updateDatetime != null "> and update_datetime = #{updateDatetime}</if>
+        <if test="updateBy != null  and updateBy != ''"> and update_by = #{updateBy}</if>
+        <if test="billPersonId != null  and billPersonId != ''"> and bill_person_id = #{billPersonId}</if>
+        <if test="billForceExecuteTime != null "> and bill_force_execute_time = #{billForceExecuteTime}</if>
+        <if test="params.beginBillForceExecuteTime != null and params.beginBillForceExecuteTime != ''"><!-- 开始时间检索 -->
+            and date_format(indictment_bill_info.bill_force_execute_time,'%y%m%d') &gt;= date_format(#{params.beginBillForceExecuteTime},'%y%m%d')
+        </if>
+        <if test="params.endBillForceExecuteTime != null and params.endBillForceExecuteTime != ''"><!-- 结束时间检索 -->
+            and date_format(indictment_bill_info.bill_force_execute_time,'%y%m%d') &lt;= date_format(#{params.endBillForceExecuteTime},'%y%m%d')
+        </if>
+        <if test="billTransDepartment != null  and billTransDepartment != ''"> and bill_trans_department like concat('%', #{billTransDepartment}, '%')</if>
+        <if test="billCrime != null  and billCrime != ''"> and bill_crime = #{billCrime}</if>
+        <if test="responseBy != null  and responseBy != ''"> and response_by like concat('%', #{responseBy}, '%')</if>
+    </select>
+
+</mapper>

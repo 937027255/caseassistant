@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html  lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--360浏览器优先以webkit内核解析-->
+    <title>电子卷宗智能辅助分析系统</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet"/>
+    <link href="../static/css/main/animate.min.css" th:href="@{/css/main/animate.min.css}" rel="stylesheet"/>
+    <link href="../static/css/main/style.min862f.css" th:href="@{/css/main/style.min862f.css}" rel="stylesheet"/>
+</head>
+
+<body class="gray-bg">
+    <div class="row  border-bottom white-bg dashboard-header" style="height: 100%">
+        <div class="col-sm-12">
+            <blockquote class="text-warning" style="font-size:14px">
+                <h3>电子卷宗智能辅助分析系统</h3>
+            </blockquote>
+            <div class="row" style="padding-top: 10%">
+                <div class="col-sm-3" style="padding-left: 40px;">
+                    <div>
+                    </div>
+                    <p style="text-align: center;">
+                    <img th:src="@{/img/ma.png}" width="40%" style="max-width:1166px;">
+                    </p>
+                    <div>
+                    </div>
+                    <h1 style="text-align:center;color:rgb(255,172,66)"><strong>“一站式”办事</strong></h1>
+                    </br>
+                    <p style="font-size: 25px">将材料收转、文书送达等程序性事务集中到诉讼服务中心，引入外包服务机制，集约化管理、提高办事效率。</p>
+                </div>
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-3" style="padding-left: 40px;">
+                    <div>
+                    </div>
+                    <p style="text-align: center;">
+                    <img th:src="@{/img/mc.png}" width="40%" style="max-width:1166px;">
+                    </p>
+                    <div>
+                    </div>
+                    <h1 style="text-align:center;color:rgb(0,180,229)"><strong>“流程化”管理</strong></h1>
+                    </br>
+                    <p style="font-size: 25px">实现对纸质文档、电子文档及业务的全流程跟踪管理，实现全流程事项办理的留痕及管控。</p>
+                </div>
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-3" style="padding-left: 40px;">
+                    <div>
+                    </div>
+                    <p style="text-align: center;">
+                    <img th:src="@{/img/md.png}" width="40%" style="max-width:1166px;">
+                    </p>
+                    <div>
+                    </div>
+                    <h1  style="text-align:center;color:rgb(192,212,73)"><strong>“智能化”办案</strong></h1>
+                    </br>
+                    <p style="font-size: 25px">依托图文识别及语义分析技术，为立案回填、庭审、文书撰写、结案、归档等提供智能化辅助支持和服务，提高办案效率。</p>
+                </div>
+            </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/ajax/libs/layer/layer.min.js}"></script>
+    <script type="text/javascript">
+	    $('#pay-qrcode').click(function(){
+	        var html=$(this).html();
+	        parent.layer.open({
+	            title: false,
+	            type: 1,
+	            closeBtn:false,
+	            shadeClose:true,
+	            area: ['600px', 'auto'],
+	            content: html
+	        });
+	    });
+    </script>
+</body>
+</html>

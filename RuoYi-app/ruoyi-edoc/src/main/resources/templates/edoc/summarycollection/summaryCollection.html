@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('言词证据事实分析')" />
+    <link th:href="@{/css/analyzing/timeAxis1.css}" rel="stylesheet"/>
+    <link th:href="@{/css/analyzing/biluSelector.css}" rel="stylesheet"/>
+    <link th:href="@{/css/analyzing/analyzing.css}" rel="stylesheet"/>
+
+    <style>
+        /* 这一条注入了jstree，临时的方式 */
+        .jstree-anchor.highlight{
+            background: rgba(255, 170, 127, 0.9);
+        }
+    </style>
+    <link th:href="@{/css/jsTree/style.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/summary/summary.css}" rel="stylesheet"/>
+
+
+
+</head>
+
+<body class="gray-bg">
+
+<div class="ibox summaryCollection" id="summaryCollection">
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="tree_container">
+                    <div id="evidence_tree"></div>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="tabs-container">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" aria-expanded="true">
+                                <span>犯罪事实</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="innerTab tab-pane active">
+                            <div class="textBox" id="factBox"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="tabs-container">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" aria-expanded="true">
+                                <span id="biluNo">笔录</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="innerTab tab-pane active">
+                            <div class="textBox" id="docBox"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:include="include :: footer" />
+<script th:src="@{/js/jsTree/jstree.min.js}"></script>
+<script th:src="@{/js/analyzing/timeAxis.js}"></script>
+<script th:src="@{/js/analyzing/textBox.js}"></script>
+<script th:src="@{/js/analyzing/eventClicker.js}"></script>
+<script th:src="@{/js/analyzing/biluSelector.js}"></script>
+<script th:src="@{/js/analyzing/docview.js}"></script>
+
+<script type="text/javascript">
+
+    function tabSelect(tabList){
+        var tabList = tabList.split(',');
+        $('.tab-pane').not($('.innerTab')).removeClass('active');
+        $.each(tabList, function(i, e){
+            e = $.trim(e);
+            $(e).addClass('active');
+        })
+    }
+
+    var jsonresult = $.ajax({
+        url:"/edoc/analyzing/api/"+'[[${bill_uid}]]',
+        async:false,
+        success: function(result){
+            if(result.code==500)
+                $.modal.alertError("尚未分析！");
+        }
+    });
+    var analyzingData= jsonresult.responseJSON;
+    var main_doc =  analyzingData.main_doc_list[0];
+    var attach_doc_list = analyzingData.attach_doc_list;
+    var timeList = analyzingData.timeDict;
+    var personList = analyzingData.personDict;
+    var localList = analyzingData.localDict;
+
+    $(function () {
+
+        // 初始化言词证据树
+        initEvidenceTree();
+
+
+    });
+
+    function initEvidenceTree() {
+
+        var tree_data = {
+            core: {
+                themes: {
+                    variant: "large"
+                },
+                data: [
+                    {
+                        text: '时间',
+                        data: {
+                            type: 0
+                        },
+                        state: {
+                            opened: true
+                        },
+                        icon: 'fa fa-history',
+                        children: []
+                    },
+                    {
+                        text: '人物',
+                        data: {
+                            type: 1
+                        },
+                        state: {
+                            opened: true
+                        },
+                        icon: 'fa fa-users',
+                        children: []
+                    },
+                    {
+                        text: '地点',
+                        data: {
+                            type: 2
+                        },
+                        state: {
+                            opened: true
+                        },
+                        icon: 'fa fa-map',
+                        children: []
+                    }
+                ]
+            }
+        };
+        var timeData = tree_data.core.data[0].children;
+        var personData = tree_data.core.data[1].children;
+        var localData = tree_data.core.data[2].children;
+        $.each(timeList, function(index, value){
+            var node = {
+                text: value["time"],
+                data:{
+                    type: "timeDict",
+                    value: index
+                },
+                icon:'fa fa-clock-o'
+            };
+            timeData.push(node);
+        })
+        $.each(personList, function(index, value){
+            var node = {
+                text: value["name"],
+                data:{
+                    type: "personDict",
+                    value: index
+                },
+                icon:'fa fa-user'
+            };
+            personData.push(node);
+        })
+        $.each(localList, function(index, value){
+            var node = {
+                text: value["location"],
+                data:{
+                    type: "localDict",
+                    value: index
+                },
+                icon:'fa fa-map-marker'
+            };
+            localData.push(node);
+        })
+        $('#evidence_tree').jstree(tree_data);
+        $('#evidence_tree').on("select_node.jstree", function (e, data) {
+            if( data.node == null ) return false;
+            var factDict = analyzingData[data.node.data.type]
+            var factList = factDict[data.node.data.value].List;
+            boxFiller('factBox', attach_doc_list, factList);
+            clickListener(".factBox");
+            $(".factBox")[0].click();
+            return true;
+        });
+    }
+
+
+
+    //打开当前文档
+    function openCurrentDocView(){
+        if (currentDocView) {
+            var type = currentDocView.type ;
+            if(type == 1){
+                //起诉书
+                openDocViewMainDoc();
+            }else if(type == 2){
+                //笔录
+                openDocViewAttachDoc(currentDocView.index, currentDocView.text);
+            }
+        }
+    }
+
+
+    function boxFiller(id, docList, idList){
+        var html = getFactHtml(docList, idList);
+        $('#' + id).html(html);
+    }
+
+    function getFactHtml(docList, idList){
+        var factList = getFactList(docList, idList);
+        var html = "";
+        $.each(factList, function(index, fact){
+            html += '<div class="col-md-12 factBox" index="'+ idList[index] + '" >'
+            $.each(["time", "location", "people"], function(i, key){
+                if(fact[key] != "" || fact[key] != []){
+                    html += '<div class="fact '+key+'">'+fact[key]+'</div>';
+                }
+            });
+            html += '</div>';
+        })
+        return html;
+
+    }
+
+    function getFactList(docList, idList){
+        var factList = [];
+        var attachFactList = [];
+
+        $.each(docList, function(docIndex, doc){
+            attachFactList = attachFactList.concat(doc.attach_doc_fact);
+        });
+        $.each(idList, function(idIndex, id){
+            factList.push(attachFactList[id]);
+        });
+        return factList;
+    }
+    function clickListener(last){
+        var docIndex, factId;
+        $(last).click(function(){
+            $(last).removeClass('active');
+            $(this).addClass('active');
+            var factBoxId = $(this).attr("index");
+            $.each(attach_doc_list, function(docListIndex, docList){
+                $.each(docList.attach_doc_fact, function (factIndex, fact){
+                    if(fact.no == factBoxId){
+                        docIndex = docListIndex;
+                        factId = factBoxId;
+                    }
+                })
+            })
+            openDocViewAttachDoc(docIndex, factId);
+        })
+    }
+
+    function closeSearchResult(){
+        $("#navtab-doc-view").parent().find("li:first a:first").tab("show");
+        $("#navtab-search-result").hide();
+    }
+
+    function openSearchResult(){
+        $("#navtab-search-result").show();
+    }
+
+    function closeDocView(){
+        $("#navtab-doc-view").parent().find("li:first a:first").tab("show");
+        $("#navtab-doc-view").hide();
+    }
+
+    function openDocView(title, content){
+        $("#navtab-doc-view>a>span").text(title);
+        $("#doc-view-text").html(content);
+        $("#navtab-doc-view").show();
+        $("#navtab-doc-view a:first").tab("show");
+    }
+
+    function openDocViewMainDoc(){
+        var highlightList = [];
+        if(search_result != null){
+            highlightList = search_result.main_doc;
+        }
+
+        openDocView("起诉意见书","");
+        var param = {
+            textString: main_doc.doc_txt.original_str, // 展示数据
+            paraList: main_doc.doc_txt.para_loc, // 默认空时间线数据
+            id: '#doc-view-text', // 判定dom ID
+            highlightList: highlightList, // 高亮部分列表
+            spanClass: 'search_result' // span标签class
+        }
+        new oDocView(param);
+    }
+
+    function openDocViewAttachDoc(index, factId){
+        var attach_doc = attach_doc_list[index];
+        var param = {
+            textString: attach_doc.attach_doc_text.original_str, // 展示数据
+            paraList: attach_doc.attach_doc_text.para_loc, // 默认空时间线数据
+            id: '#docBox', // 判定dom ID
+            highlightList: attach_doc.attach_doc_fact, // 高亮部分列表
+            spanLabel: 'docFact' // span标签class
+        }
+        new oParaText(param);
+        $('.docFact.textContent[data-index=\'' + factId + '\']').addClass('active')[0].scrollIntoViewIfNeeded();
+        var no = index+1;
+        $('#biluNo').html('<span>笔录'+no+'</span>');
+    }
+
+    function searchText(){
+        var search_text = $("#search_text").val();
+        if(search_text == ''){
+            search_result = null;
+        }else{
+            var result={
+                main_doc:[],
+                attach_doc_list:[]
+            }
+            result.main_doc = searchInParaText(search_text, main_doc.doc_txt.original_str, main_doc.doc_txt.para_loc);
+
+            $.each(attach_doc_list, function (index, attach_doc) {
+                var tmp = searchInParaText(search_text, attach_doc.attach_doc_text.original_str, attach_doc.attach_doc_text.para_loc);
+                result.attach_doc_list.push(tmp);
+            });
+
+            search_result = result;
+        }
+
+        refreshDocTree();
+        openCurrentDocView();
+    }
+
+    function searchInParaText(target, text, paraLoc){
+        var list = [];
+        $.each(paraLoc, function (index, item) {
+            var line=text.substring(item, paraLoc[index+1]);
+            var pos = line.indexOf(target);
+            if(pos >=0){
+                list.push({
+                    start:item + pos,
+                    length:target.length
+                });
+            }
+        });
+        return list;
+    }
+
+
+    window.addEventListener("beforeunload", function (event) {
+
+    });
+
+    $(document).ready(function(){
+        var windowHeight = $(window).height();
+        if($('.pad-bottom').height() > windowHeight){
+            $('.pad-bottom').height(windowHeight-150);
+        }
+    });
+
+</script>
+</body>
+</html>
+
